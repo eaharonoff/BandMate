@@ -1,10 +1,10 @@
 function addUser(user){
-
+  debugger
   return {
     type: 'ADD_USER',
     email: user.email,
     password: user.password,
-    zip: user.zip
+    zip: user.zipcode
   }
   // const url = 'http://localhost:3000/users'
   // const request = axios.post(url)

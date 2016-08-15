@@ -3,37 +3,31 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import addUser from '../actions/addUser';
 import { browserHistory } from 'react-router'
+import { reduxForm } from 'redux-form'
 
 
 class SignUp extends Component {
-
-  handleSubmit(event){
-    event.preventDefault()
-    var formChildren = event.target.children
-    var email = formChildren[0].value
-    var password = formChildren[1].value
-    var zip = formChildren[2].value
-    this.props.addUser({email, password, zip})
+  //
+  otherFunc(props){
+    this.props.addUser(props)
     browserHistory.push('/signup2')
   }
 
   render() {
+    const {fields: {email, password, zipcode}, handleSubmit} = this.props;
     return (
-        <form onSubmit={this.handleSubmit.bind(this)}>
-        Email: <input type='text' placeholder='your email' />
-        Password: <input type='password' placeholder='password'/>
-        Zip Code: <input type='text' placeholder='your zip'/>
-        <input type='submit'></input>
+        <form onSubmit={handleSubmit(this.otherFunc.bind(this))}>
+          Email: <input type='email' placeholder='your email' {...email}/>
+          Password: <input type='password' placeholder='password' {...password}/>
+          Zip Code: <input type='text' placeholder='your zip' {...zipcode}/>
+          <input type='submit'></input>
         </form>
     );
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators({addUser: addUser}, dispatch)
-}
 
-const SmartSignUp = connect(null, mapDispatchToProps)(SignUp)
-
-
-export default SmartSignUp;
+export default reduxForm({
+  form: 'signUp',
+  fields: ['email', 'password', 'zipcode']
+}, null, {addUser})(SignUp);
