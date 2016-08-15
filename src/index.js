@@ -1,9 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import musicApp from './reducers/allreducers'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import ReduxPromise from 'redux-promise'
+import { Router, browserHistory } from 'react-router'
+import Routes from './routes'
 import './index.css';
 
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore)
+
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+ <Provider store={createStoreWithMiddleware(musicApp)}>
+   <Router history={browserHistory} routes={Routes} />
+ </Provider>,
+ document.getElementById('root')
 );
