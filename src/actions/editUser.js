@@ -1,11 +1,9 @@
-import axios from 'axios'
-
 function editUser(info){
 
   return {
     type: 'EDIT_USER',
-    genre: info.genre,
-    instrument: info.instrument
+    genres: info.genres,
+    instruments: info.instruments
   }
 
 }

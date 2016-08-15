@@ -3,7 +3,7 @@ export default function currentUser(state = {}, action){
     case 'ADD_USER':
       return {email: action.email , password: action.password, zip: action.zip}
     case 'EDIT_USER':
-      var newState = Object.assign({}, state, {genre: action.genre}, {instrument: action.instrument})
+      var newState = Object.assign({}, state, {genres: action.genres}, {instruments: action.instruments})
       return newState
     default:
       return state

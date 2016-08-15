@@ -1,7 +1,5 @@
-import axios from 'axios'
-
 function addUser(user){
-  
+
   return {
     type: 'ADD_USER',
     email: user.email,
@@ -19,5 +17,5 @@ function addUser(user){
 }
 export default addUser
 
-// middleware can block or modify the actions that are created 
+// middleware can block or modify the actions that are created
 // before they hit the reducer
