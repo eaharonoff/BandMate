@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import loginUser from '../actions/loginUser';
-import { browserHistory } from 'react-router';
 import { Link } from 'react-router';
 import axios from 'axios';
 
 class SignIn extends Component {
+  static contextTypes = {
+    router: PropTypes.object
+  };
+
   handleSubmit(event){
     event.preventDefault()
     var email = document.getElementById('email').value
@@ -18,13 +21,15 @@ class SignIn extends Component {
         document.getElementById('login-form').innerHTML += '<p>ur wrong</p>'
       } else {
         this.props.loginUser(response.data)
+        this.context.router.push('/profile')
       }
     })
   }
+
   render(){
     return(
       <div>
-        <form id = 'login-form' onSubmit={this.handleSubmit.bind(this)}>
+        <form id='login-form' onSubmit={this.handleSubmit.bind(this)}>
           <label>Email</label>
           <input type='text' placeholder='your email' id='email'/>
           <label>Password</label>
