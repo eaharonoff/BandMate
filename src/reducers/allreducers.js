@@ -1,4 +1,4 @@
-import currentUser from './add_user_reducer'
+import currentUser from './currentUser'
 import { combineReducers } from 'redux'
 
 export default combineReducers({

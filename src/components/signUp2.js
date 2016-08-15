@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import editUser from '../actions/edit_user';
+import editUser from '../actions/editUser';
 import axios from 'axios'
 
 class SignUp2 extends Component {
@@ -11,10 +11,9 @@ class SignUp2 extends Component {
     var formChildren = event.target.children
     var genre = formChildren[0].value
     var instrument = formChildren[1].value
-    axios.get('http://localhost:3000/users').then(function (response) {
-      debugger
-      console.log(response);
-    });
+    this.props.editUser({genre, instrument})
+    var user = Object.assign({}, this.props.currentUser, {genre}, {instrument})
+    axios({method: 'post', url: 'http://localhost:3000/users', data: user})
   }
 
   render() {
@@ -22,7 +21,7 @@ class SignUp2 extends Component {
         <form onSubmit={this.handleSubmit.bind(this)}>
         Genre: <input type='text' placeholder='genre' />
         Instrument: <input type='text' placeholder='instrument'/>
-        <input type='submit' value='add stuff'></input>
+        <input type='submit'></input>
         </form>
     );
   }
