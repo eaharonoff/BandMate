@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import loginUser from '../actions/loginUser';
 import axios from 'axios'
 
 class SignUp2 extends Component {
+  static contextTypes = {
+    router: PropTypes.object
+  };
 
   handleSubmit(event){
     event.preventDefault()
@@ -26,8 +29,8 @@ class SignUp2 extends Component {
     var userJSON = JSON.stringify(user)
     axios({method: 'post', url: 'http://localhost:3000/users', data: userJSON}).then(response => {
       this.props.loginUser(response.data)
+      this.context.router.push('/profile')
     })
-
   }
 
   render() {
