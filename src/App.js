@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
+
 import './App.css';
 
 class App extends Component {
