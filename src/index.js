@@ -6,6 +6,7 @@ import { Provider } from 'react-redux'
 import ReduxPromise from 'redux-promise'
 import { Router, browserHistory } from 'react-router'
 import Routes from './routes'
+import {reducer as formReducer} from 'redux-form'
 import './index.css';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore)

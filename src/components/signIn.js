@@ -15,7 +15,6 @@ class SignIn extends Component {
     var loginJSON = JSON.stringify(login)
     axios({method: 'post', url: 'http://localhost:3000/users/login', data: loginJSON }).then(response => {
       if (response.data.info) {
-        debugger
         document.getElementById('login-form').innerHTML += '<p>ur wrong</p>'
       } else {
         this.props.loginUser(response.data)

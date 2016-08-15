@@ -27,6 +27,7 @@ class SignUp2 extends Component {
     axios({method: 'post', url: 'http://localhost:3000/users', data: userJSON}).then(response => {
       this.props.loginUser(response.data)
     })
+
   }
 
   render() {
