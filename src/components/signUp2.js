@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import editUser from '../actions/editUser';
+import loginUser from '../actions/loginUser';
 import axios from 'axios'
 
 class SignUp2 extends Component {
@@ -22,11 +22,11 @@ class SignUp2 extends Component {
         instruments.push(instrumentNodes[i].value)
       }
     }
-    this.props.editUser({genres, instruments})
     var user = Object.assign({}, this.props.currentUser, {genres: genres.join(' ')}, {instruments: instruments.join(' ')})
     var userJSON = JSON.stringify(user)
-    debugger
-    axios({method: 'post', url: 'http://localhost:3000/users', data: userJSON})
+    axios({method: 'post', url: 'http://localhost:3000/users', data: userJSON}).then(response => {
+      this.props.loginUser(response.data)
+    })
   }
 
   render() {
@@ -61,7 +61,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({editUser: editUser}, dispatch)
+  return bindActionCreators({loginUser}, dispatch)
 }
 
 const SmartSignUp2 = connect(mapStateToProps, mapDispatchToProps)(SignUp2)
