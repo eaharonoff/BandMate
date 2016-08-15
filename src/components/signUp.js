@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, { Component, PropTypes } from 'react';
 import addUser from '../actions/addUser';
-import { browserHistory } from 'react-router'
 import { reduxForm } from 'redux-form'
 
 
 class SignUp extends Component {
-  //
+  static contextTypes = {
+    router: PropTypes.object
+  }
+
   otherFunc(props){
     this.props.addUser(props)
-    browserHistory.push('/signup2')
+    this.context.router.push('/signup2')
   }
+
 
   render() {
     const {fields: {email, password, zipcode}, handleSubmit} = this.props;
@@ -25,7 +26,6 @@ class SignUp extends Component {
     );
   }
 }
-
 
 export default reduxForm({
   form: 'signUp',
