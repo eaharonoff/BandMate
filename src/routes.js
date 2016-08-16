@@ -19,5 +19,6 @@ export default (
     <Route path="/profile" component={UserProfile} />
     <Route path="/profile/edit" component={EditProfile} />
     <Route path="/search" component={Search} />
+    
   </Route>
   );
