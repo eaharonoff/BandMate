@@ -6,7 +6,6 @@ import './App.css';
 
 class App extends Component {
   render() {
-    debugger
     if (this.props.currentUser.id !== undefined) {
       return (
       <div id='app'>

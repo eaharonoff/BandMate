@@ -16,11 +16,12 @@ class SignIn extends Component {
     var password = document.getElementById('password').value
     var login = {email, password}
     var loginJSON = JSON.stringify(login)
-    axios({method: 'post', url: 'http://localhost:3000/users/login', data: loginJSON }).then(response => {
+    axios({method: 'post', url: 'http://localhost:3000/users/login', data:loginJSON }).then(response => {
       if (response.data.info) {
         document.getElementById('login-form').innerHTML += '<p>ur wrong</p>'
       } else {
         this.props.loginUser(response.data)
+        debugger
         this.context.router.push('/profile')
       }
     })

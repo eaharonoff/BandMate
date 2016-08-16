@@ -6,7 +6,8 @@ class EditUser extends Component {
   render() {
     return (
       <form id='user-edit-form'>
-       
+      
+       <input type='text' />
       </form>
     )
   }

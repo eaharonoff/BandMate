@@ -6,7 +6,7 @@ class Music extends Component {
   render() {
     return (
       <div id='user-music'>
-        {this.props.state.currentUser.soundcloud_url}
+      Music Goes Here: {this.props.currentUser.soundcloud_url}
       </div>
     )
   }

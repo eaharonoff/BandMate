@@ -5,7 +5,7 @@ class Title extends Component {
   render() {
     return (
       <div id='user-title'>
-        <h1>{this.props.currentUser.name}, {this.props.currentUser.age}</h1>
+        <h3>{this.props.currentUser.email}, {this.props.currentUser.age}</h3>
       </div>
     )
   }
@@ -15,6 +15,6 @@ function mapStateToProps(state) {
   return {currentUser: state.currentUser}
 }
 
-var SmartTitle = connect(mapStateToProps)(Title)
+var SmartTitle = connect(mapStateToProps)(Title);
 
 export default SmartTitle;

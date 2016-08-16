@@ -11,7 +11,7 @@ class Profile extends Component {
       <div id='user-profile'>
        <SmartTitle />
        <Details />
-       <Link to='/profile/edit'> Edit profile/></Link>
+       <Link to='/profile/edit'> Edit profile</Link>
       </div>
     )
   }

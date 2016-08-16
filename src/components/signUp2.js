@@ -35,10 +35,10 @@ class SignUp2 extends Component {
 
   render() {
     var genres = ['rock', 'pop']
-    var genreCheckboxes = genres.map(genre => {
+    var genreCheckboxes = genres.map((genre) => {
       return (
         <div>
-          <label>{genre}</label><input type="checkbox" className='genreCheckbox' value={genre}/>
+          <label>{genre}</label><input key={genre} type="checkbox" className='genreCheckbox' value={genre}/>
         </div>
       )
     })
@@ -46,7 +46,7 @@ class SignUp2 extends Component {
     var instrumentCheckboxes = instruments.map(instrument => {
       return (
         <div>
-          <label>{instrument}</label><input type="checkbox" className='instrumentCheckbox' value={instrument}/>
+          <label>{instrument}</label><input key={instrument}type="checkbox" className='instrumentCheckbox' value={instrument}/>
         </div>
       )
     })
