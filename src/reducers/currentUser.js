@@ -4,6 +4,8 @@ export default function currentUser(state = {}, action){
       return {email: action.email, password: action.password, zip: action.zip}
     case 'LOGIN_USER':
       return action.payload
+    case 'DELETE_USER':
+      return {}
     default:
       return state
   }
