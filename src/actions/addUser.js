@@ -1,9 +1,11 @@
 function addUser(user){
+
   return {
     type: 'ADD_USER',
+    name: user.name,
+    zip: user.zipcode,
     email: user.email,
-    password: user.password,
-    zip: user.zipcode
+    password: user.password
   }
   // const url = 'http://localhost:3000/users'
   // const request = axios.post(url)

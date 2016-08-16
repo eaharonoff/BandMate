@@ -21,7 +21,6 @@ class SignIn extends Component {
         document.getElementById('login-form').innerHTML += '<p>ur wrong</p>'
       } else {
         this.props.loginUser(response.data)
-        debugger
         this.context.router.push('/profile')
       }
     })
@@ -35,9 +34,9 @@ class SignIn extends Component {
           <input type='text' placeholder='your email' id='email'/>
           <label>Password</label>
           <input type='password' placeholder='your password' id='password'/>
-          <input type='submit' />
+          <input type='submit'/>
         </form>
-        <Link to='/signup'> New user? Sign up here </Link>
+        <Link to='/signup'>New user? Sign up here</Link>
       </div>
     )
   }

@@ -4,10 +4,9 @@ import App from './App'
 import SmartSignUp from './components/signUp'
 import SmartSignUp2 from './components/signUp2'
 import SignIn from './components/signIn'
-import Profile from './components/profile'
-import EditUser from './components/editUser'
+import UserProfile from './components/currentUserProfile'
+import EditProfile from './components/editProfile'
 import Search from './components/search'
-import Logout from './components/logout'
 
 
 
@@ -17,9 +16,8 @@ export default (
     <Route path="/signup" component={SmartSignUp} />
     <Route path="/signup2" component={SmartSignUp2} />
     <Route path="/signin" component={SignIn} />
-    <Route path="/profile" component={Profile} />
-    <Route path="/profile/edit" component={EditUser} />
+    <Route path="/profile" component={UserProfile} />
+    <Route path="/profile/edit" component={EditProfile} />
     <Route path="/search" component={Search} />
-    <Route path="/logout" component={Logout} />
   </Route>
   );
