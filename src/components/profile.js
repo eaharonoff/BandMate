@@ -1,20 +1,14 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import Basics from './basics'
 
-class Profile extends Component {
-  render() {
-    return (
-      <div id='Profile'>
-        <h1> your ugly profile </h1>
-      </div>
-    )
-  }
+const Profile = ({data}) => {
+  return (
+    <div>
+      <Basics data={data}/>
+      <div>Bio: {data.bio}</div>
+      <div>Music Goes Here: {data.music}</div>
+    </div>
+  )
 }
 
-function mapStateToProps(state) {
-  return {currentUser: state.currentUser}
-}
-
-connect(mapStateToProps)(Profile)
-
-export default Profile;
+export default Profile
