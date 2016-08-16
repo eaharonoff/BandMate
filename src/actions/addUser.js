@@ -1,5 +1,4 @@
 function addUser(user){
-  debugger
   return {
     type: 'ADD_USER',
     email: user.email,
