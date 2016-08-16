@@ -28,10 +28,10 @@ class EditProfile extends Component {
     const {fields: {name, zipcode, age, bio}, handleSubmit} = this.props;
     return (
       <form onSubmit={handleSubmit(this.otherFunc.bind(this))}>
-        Name: <input type='text' value={user.name} {...name}/>
-        Zipcode: <input type='tel' value={user.zip} {...zipcode}/>
-        Age: <input type='number' value={user.age} {...age}/>
-        Bio: <textarea value={user.bio} {...bio}/>
+        Name: <input type='text' placeholder={user.name} {...name}/>
+        Zipcode: <input type='text' placeholder={user.zip} {...zipcode}/>
+        Age: <input type='number' placeholder={user.age} {...age}/>
+        Bio: <textarea placeholder={user.bio} {...bio}/>
         Choose Genres: <GenreCheckboxes/>
         Choose Instruments: <InstrumentCheckboxes/>
         <input type='submit'/>

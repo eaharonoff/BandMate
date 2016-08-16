@@ -18,7 +18,7 @@ class SignUp extends Component {
     return (
         <form onSubmit={handleSubmit(this.otherFunc.bind(this))}>
           Name: <input type='text' placeholder='name' {...name}/>
-          Zipcode: <input type='tel' placeholder='zipcode' {...zipcode}/>
+          Zipcode: <input type='text' placeholder='zipcode' {...zipcode}/>
           Email: <input type='email' placeholder='email' {...email}/>
           Password: <input type='password' placeholder='password' {...password}/>
           <input type='submit'></input>

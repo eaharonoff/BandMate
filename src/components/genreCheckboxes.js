@@ -1,7 +1,7 @@
 import React from 'react'
 
 const GenreCheckboxes = () => {
-  var genres = ['rock', 'pop']
+  var genres = ['rock', 'pop', 'punk', 'polka']
   var boxes = genres.map((genre) => {
     return (
       <div>
