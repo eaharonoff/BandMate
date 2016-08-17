@@ -44,6 +44,7 @@ class Basics extends Component {
           <a href="#" onClick={this.handleClick.bind(this)} id={this.props.data.id}>{this.props.data.name}, {this.props.data.age}</a>
           <div>Instruments: {this.props.data.instruments.map(instrument => instrument.name).join(", ")}</div>
           <div>Genres: {this.props.data.genres.map(genre => genre.name).join(", ")}</div>
+          
           <button onClick={this.sendRequest.bind(this)}>hey girl</button>
         </div>
       )

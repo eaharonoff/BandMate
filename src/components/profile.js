@@ -8,8 +8,10 @@ const Profile = ({data}) => {
       <Basics data={data}/>
       <div>Zipcode: {data.zip}</div>
       <div>Bio: {data.bio}</div>
-      <div>Music Goes Here: {data.music}</div>
+      <div>Music Goes Here: </div>
+      <div dangerouslySetInnerHTML={{__html: data.soundcloud}} />
       <FriendList data={data.allFriends} />
+
     </div>
   )
 }

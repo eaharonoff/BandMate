@@ -1,9 +1,12 @@
 import React from 'react'
 
 const EmbedSoundcloud = () => {
+
+
+
   return (
     <div>
-      <input type="text" className="embedSoundcloud" />
+      <input type="text" placeholder="Embed Soundcloud Here" id="soundcloudInput" />
     </div>
 
   )
