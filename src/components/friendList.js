@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import Basics from './basics'
 import { Component } from 'react'
 import { bindActionCreators } from 'redux'
@@ -23,11 +23,11 @@ class FriendList extends Component {
   }
 
   render() {
+    var friends = this.props.data.map((friend) => <Basics data={friend}/> )
     return (
-      <ul> {this.props.data.map((friend) => {
-          return (<Basics data={friend}/>)
-        })}
-        </ul>
+      <ul>
+      {friends}
+      </ul>
     )
   }
 }

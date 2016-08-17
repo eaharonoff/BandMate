@@ -21,7 +21,7 @@ class App extends Component {
         <div id='navbar'>
           <Link to='/profile'>My Profile</Link>
           <Link to='/search'>Find Musicians</Link>
-          <Link to='/requests'>Friend Requests - {this.props.currentUser.received_requests.length} Pending</Link>
+          <Link to='/requests'>Friend Requests - {this.props.currentUser.received_requests.length}</Link>
           <a href="#" onClick={this.removeUser.bind(this)}>Logout</a>
           {this.props.children}
         </div>
