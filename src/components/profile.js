@@ -3,6 +3,7 @@ import BasicsContainer from './basicsContainer'
 import FriendList from './friendList'
 
 const Profile = ({data, notCurrentUser}) => {
+  debugger
   if (notCurrentUser) {
     return (
       <div>
