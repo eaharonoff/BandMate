@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import loginUser from '../actions/loginUser';
+import updateUser from '../actions/updateUser';
 import { Link } from 'react-router';
 import axios from 'axios';
 
@@ -21,7 +21,7 @@ class SignIn extends Component {
       if (response.data.info) {
         document.getElementById('login-form').innerHTML += '<p>ur wrong</p>'
       } else {
-        this.props.loginUser(response.data)
+        this.props.updateUser(response.data)
         this.context.router.push('/profile')
       }
     })
@@ -44,7 +44,7 @@ class SignIn extends Component {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({loginUser}, dispatch)
+  return bindActionCreators({updateUser}, dispatch)
 }
 
 const SmartSignIn = connect(null, mapDispatchToProps)(SignIn)

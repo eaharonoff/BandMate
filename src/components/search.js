@@ -14,7 +14,8 @@ class Search extends Component {
     event.preventDefault()
     var genres = checkboxHelper().genres.join(" ")
     var instruments = checkboxHelper().instruments.join(" ")
-    var userJSON= JSON.stringify({genres, instruments})
+    var userId = this.props.currentUser.id
+    var userJSON= JSON.stringify({genres, instruments, userId})
     axios({method: 'post', url: 'http://localhost:3000/users/filter', data: userJSON}).then(response => {
       this.props.searchUsers(response.data)
     })
@@ -34,8 +35,12 @@ class Search extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {currentUser: state.currentUser}
+}
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({searchUsers}, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(Search)
+export default connect(mapStateToProps, mapDispatchToProps)(Search)

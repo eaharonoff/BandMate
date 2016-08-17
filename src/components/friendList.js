@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, { PropTypes } from 'react'
 import Basics from './basics'
 import { Component } from 'react'
 import { bindActionCreators } from 'redux'
@@ -15,8 +15,6 @@ class FriendList extends Component {
   handleClick(event) {
     event.preventDefault()
     var friendId = event.target.id
-    // var friendIdObj = {thing: "FOOFOO"}
-    // var friendIdObjJSON = JSON.stringify(friendIdObj)
     axios({method: 'get', url: `http://localhost:3000/users/${friendId}`}).then((response) => {
       var user = response.data
       this.props.setUser(user)
@@ -25,16 +23,14 @@ class FriendList extends Component {
   }
 
   render() {
+    var friends = this.props.data.map((friend) => <Basics data={friend}/> )
     return (
-      <ul> {this.props.data.map((friend) => {
-          return (<li onClick={this.handleClick.bind(this)} id={friend.id}> {friend.name}  </li>)
-        })}
-        </ul>
+      <ul>
+      {friends}
+      </ul>
     )
   }
 }
-
-
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({setUser}, dispatch)

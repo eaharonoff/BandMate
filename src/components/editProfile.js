@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form'
 import { bindActionCreators } from 'redux'
 import GenreCheckboxes from './genreCheckboxes'
 import InstrumentCheckboxes from './instrumentCheckboxes'
-import loginUser from '../actions/loginUser'
+import updateUser from '../actions/updateUser'
 import axios from 'axios'
 import checkboxHelper from '../helpers/checkboxHelper'
 
@@ -19,7 +19,7 @@ class EditProfile extends Component {
     var user = Object.assign({}, props, {id: this.props.currentUser.id}, {genres: genres.join(' ')}, {instruments: instruments.join(' ')})
     var userJSON = JSON.stringify(user)
     axios({method: 'post', url: 'http://localhost:3000/user', data: userJSON}).then(response => {
-      this.props.loginUser(response.data)
+      this.props.updateUser(response.data)
       this.context.router.push('/profile')
     })
   }
@@ -50,7 +50,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({loginUser}, dispatch)
+  return bindActionCreators({updateUser}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SmartForm)
