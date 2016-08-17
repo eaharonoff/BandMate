@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import Basics from './basics'
+import BasicsContainer from './basicsContainer'
 import { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -23,7 +23,7 @@ class FriendList extends Component {
   }
 
   render() {
-    var friends = this.props.data.map((friend) => <Basics data={friend}/> )
+    var friends = this.props.data.map((friend) => <BasicsContainer data={friend}/> )
     return (
       <ul>
       {friends}
@@ -36,5 +36,4 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators({setUser}, dispatch)
 }
 
-var SmartFriendList = connect(null, mapDispatchToProps)(FriendList)
-export default SmartFriendList
+export default connect(null, mapDispatchToProps)(FriendList)

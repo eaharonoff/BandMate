@@ -6,7 +6,7 @@ class ViewUserProfile extends Component {
   render() {
     return (
       <div className='user-profile'>
-       <Profile data={this.props.currentlyViewing} />
+       <Profile data={this.props.currentlyViewing} notCurrentUser={true}/>
       </div>
     )
   }
