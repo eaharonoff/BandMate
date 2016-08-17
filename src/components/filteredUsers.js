@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Basics from './basics';
+import BasicsContainer from './basicsContainer';
 
 class FilteredUsers extends Component {
   static contextTypes = {
@@ -10,7 +10,7 @@ class FilteredUsers extends Component {
   render() {
     var userCollection = this.props.searchedUsers.map(user => {
       return (
-        <Basics data={user}/>
+        <BasicsContainer data={user}/>
       )
     })
     return (
