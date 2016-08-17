@@ -5,6 +5,8 @@ import updateUser from '../actions/updateUser'
 import axios from 'axios'
 import FriendRequest from './friendRequest'
 import requestHelper from '../helpers/requestHelper'
+import addFriendship from '../actions/addFriendship'
+import declineFriendRequest from '../actions/declineFriendRequest'
 
 class FriendRequests extends Component {
   static contextTypes = {
@@ -15,7 +17,7 @@ class FriendRequests extends Component {
     event.preventDefault()
     var data = requestHelper(event.target, this.props.currentUser)
     axios({method: 'post', url: 'http://localhost:3000/friendships', data: data}).then(response => {
-      this.props.updateUser(response.data)
+      this.props.addFriendship(response.data)
     })
   }
 
@@ -23,7 +25,7 @@ class FriendRequests extends Component {
     event.preventDefault()
     var data = requestHelper(event.target, this.props.currentUser)
     axios({method: 'post', url: 'http://localhost:3000/friend_requests/delete', data: data}).then(response => {
-      this.props.updateUser(response.data)
+      this.props.declineFriendRequest(response.data)
     })
   }
 
@@ -40,7 +42,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({updateUser}, dispatch)
+  return bindActionCreators({declineFriendRequest, addFriendship}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(FriendRequests)

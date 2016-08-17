@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import updateUser from '../actions/updateUser'
 import setUser from '../actions/setUser'
+import addFriendRequest from '../actions/addFriendRequest'
 import axios from 'axios'
 import Basics from './basics'
 import RequestButton from './requestButton'
@@ -22,13 +23,12 @@ class BasicsContainer extends Component {
   }
   sendRequest(event) {
     event.preventDefault()
-    debugger
     var myId = this.props.currentUser.id
     var userId = event.target.parentElement.dataset.id
     var data = {myId, userId}
     var dataJSON = JSON.stringify(data)
     axios({method: 'post', url: 'http://localhost:3000/friend_requests', data: dataJSON}).then(response => {
-      this.props.updateUser(response.data)
+      this.props.addFriendRequest(response.data)
     })
   }
   render() {
@@ -56,7 +56,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({updateUser, setUser}, dispatch)
+  return bindActionCreators({addFriendRequest, setUser}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BasicsContainer)
