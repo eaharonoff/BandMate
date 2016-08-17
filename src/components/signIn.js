@@ -21,6 +21,7 @@ class SignIn extends Component {
         document.getElementById('login-form').innerHTML += '<p>ur wrong</p>'
       } else {
         this.props.updateUser(response.data)
+
         this.context.router.push('/profile')
       }
     })
