@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import updateUser from '../actions/updateUser'
 import setUser from '../actions/setUser'
 import addFriendRequest from '../actions/addFriendRequest'
 import axios from 'axios'
