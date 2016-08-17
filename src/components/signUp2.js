@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import loginUser from '../actions/loginUser';
+import updateUser from '../actions/updateUser';
 import axios from 'axios'
 import GenreCheckboxes from './genreCheckboxes'
 import InstrumentCheckboxes from './instrumentCheckboxes'
@@ -19,7 +19,7 @@ class SignUp2 extends Component {
     var user = Object.assign({}, this.props.currentUser, {genres: genres.join(' ')}, {instruments: instruments.join(' ')})
     var userJSON = JSON.stringify(user)
     axios({method: 'post', url: 'http://localhost:3000/users', data: userJSON}).then(response => {
-      this.props.loginUser(response.data)
+      this.props.updateUser(response.data)
       this.context.router.push('/profile')
     })
   }
@@ -40,7 +40,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({loginUser}, dispatch)
+  return bindActionCreators({updateUser}, dispatch)
 }
 
 const SmartSignUp2 = connect(mapStateToProps, mapDispatchToProps)(SignUp2)
