@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Basics = ({data, viewProfile}) => {
-  debugger
   return (
     <div>
       <a href="#" onClick={viewProfile} id={data.id}>{data.name}, {data.age}</a>

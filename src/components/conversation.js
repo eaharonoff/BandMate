@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
+import axios from 'axios';
+import saveConvo from '../actions/saveConvo'
 
 class Conversation extends Component{
   handleClick(event){
     event.preventDefault()
     var convoId = event.target.id
     axios({method: 'get', url: `http://localhost:3000/conversations/${convoId}`}).then((response) => {
-    debugger
+    this.props.saveConvo(response.data)
     })
   }
   render(){
     return(
       <div onClick={this.handleClick.bind(this)}>
-        <h3 id={this.props.convoData.id}>{this.props.convoData.name}</h3>
-
+        <div id={this.props.convoData.id}>{this.props.convoData.name}</div>
       </div>
     )
   }
 }
 
-export default Conversation
+function mapDispatchToProps(dispatch){
+ return bindActionCreators({saveConvo}, dispatch)
+}
+
+export default connect(null,mapDispatchToProps)(Conversation) 
