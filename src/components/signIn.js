@@ -12,6 +12,7 @@ class SignIn extends Component {
 
   handleSubmit(event){
     event.preventDefault()
+    debugger
     var email = document.getElementById('email').value
     var password = document.getElementById('password').value
     var login = {email, password}

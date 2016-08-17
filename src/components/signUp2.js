@@ -5,7 +5,9 @@ import loginUser from '../actions/loginUser';
 import axios from 'axios'
 import GenreCheckboxes from './genreCheckboxes'
 import InstrumentCheckboxes from './instrumentCheckboxes'
+import EmbedSoundcloud from './embedSoundcloud'
 import checkboxHelper from '../helpers/checkboxHelper'
+
 
 class SignUp2 extends Component {
   static contextTypes = {
@@ -29,6 +31,7 @@ class SignUp2 extends Component {
         <form onSubmit={this.handleSubmit.bind(this)}>
         Choose Genres: <GenreCheckboxes />
         Choose Instruments: <InstrumentCheckboxes />
+        Enter Soundcloud (Embed): <EmbedSoundcloud />
         <input type='submit'></input>
         </form>
     );
