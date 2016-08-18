@@ -25,7 +25,6 @@ export default (
       <Route path="/profile" component={CurrentUserProfile}/>
       <Route path="/profile/edit" component={EditProfile} />
       <Route path="/search" component={Search} >
-
         <Route path="/results" component={FilteredUsers} />
       </Route>
 

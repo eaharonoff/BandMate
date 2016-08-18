@@ -24,7 +24,6 @@ class SignUp2 extends Component {
     axios({method: 'post', url: 'http://localhost:3000/users', data: userJSON}).then(response => {
       response.data.soundcloud = response.data.soundcloud.replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
       this.props.updateUser(response.data)
-      debugger
       this.context.router.push('/profile')
     })
   }

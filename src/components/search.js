@@ -20,7 +20,7 @@ class Search extends Component {
     var userJSON= JSON.stringify({genres, instruments, userId})
     axios({method: 'post', url: 'http://localhost:3000/users/filter', data: userJSON}).then(response => {
       this.props.searchUsers(response.data)
-      debugger
+
       this.context.router.push('/results')
     })
   }

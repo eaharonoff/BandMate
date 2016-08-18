@@ -1,28 +1,34 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import BasicsContainer from './basicsContainer';
+import { bindActionCreators }  from 'redux'
+import setUser from '../actions/setUser'
 
 class FilteredUsers extends Component {
   static contextTypes = {
     router: PropTypes.object
   }
 
+  componentWillMount(){
+    
+    var currentView = this.props.searchedUsers[0]
+    this.props.setUser(currentView)
+  }
+
   render() {
-    var userCollection = this.props.searchedUsers.map(user => {
+    debugger
       return (
-        <BasicsContainer data={user}/>
+        <BasicsContainer data={this.props.currentlyViewing}/>
       )
-    })
-    return (
-      <div>
-        {userCollection}
-      </div>
-    )
   }
 }
 
 function mapStateToProps(state) {
-  return {searchedUsers: state.searchedUsers}
+  return {searchedUsers: state.searchedUsers, currentlyViewing: state.currentlyViewing}
 }
 
-export default connect(mapStateToProps)(FilteredUsers)
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({setUser}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilteredUsers)

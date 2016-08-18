@@ -31,9 +31,8 @@ class BasicsContainer extends Component {
       this.props.addFriendRequest(response.data)
     })
   }
-  render() {
-    debugger
-    var idArray = this.props.currentUser.allFriends.map(friend => friend.id)
+  render(){
+    var idArray = [1, 2, 3]
     idArray.push(this.props.currentUser.id)
     if (idArray.find((id) => id === this.props.data.id) !== undefined ) {
       return (
