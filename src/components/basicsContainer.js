@@ -32,6 +32,7 @@ class BasicsContainer extends Component {
     })
   }
   render() {
+    debugger
     var idArray = this.props.currentUser.allFriends.map(friend => friend.id)
     idArray.push(this.props.currentUser.id)
     if (idArray.find((id) => id === this.props.data.id) !== undefined ) {

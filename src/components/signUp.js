@@ -41,7 +41,7 @@ class SignUp extends Component {
 
     var dt = e.dataTransfer
     var files = dt.files
-    debugger
+    
   }
 
   componentDidMount() {

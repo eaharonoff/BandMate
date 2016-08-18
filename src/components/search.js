@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import axios from 'axios'
 import GenreCheckboxes from './genreCheckboxes'
 import InstrumentCheckboxes from './instrumentCheckboxes'
 import checkboxHelper from '../helpers/checkboxHelper'
 import searchUsers from '../actions/searchUsers'
-import FilteredUsers from './filteredUsers'
 import { connect } from 'react-redux'
 import { bindActionCreators} from 'redux'
 
 class Search extends Component {
+  static contextTypes = {
+    router: PropTypes.object
+  }
 
   handleSubmit(event){
     event.preventDefault()
@@ -18,6 +20,8 @@ class Search extends Component {
     var userJSON= JSON.stringify({genres, instruments, userId})
     axios({method: 'post', url: 'http://localhost:3000/users/filter', data: userJSON}).then(response => {
       this.props.searchUsers(response.data)
+      debugger
+      this.context.router.push('/results')
     })
   }
 
@@ -29,7 +33,7 @@ class Search extends Component {
           Choose Instruments: <InstrumentCheckboxes />
           <input type='submit'></input>
         </form>
-        <FilteredUsers/>
+        {this.props.children}
       </div>
     )
   }
