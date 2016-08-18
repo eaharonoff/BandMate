@@ -16,13 +16,20 @@ class EditProfile extends Component {
   otherFunc(props) {
     var genres = checkboxHelper().genres
     var instruments = checkboxHelper().instruments
-    var user = Object.assign({}, props, {id: this.props.currentUser.id}, {genres: genres.join(' ')}, {instruments: instruments.join(' ')})
-    var userJSON = JSON.stringify(user)
-    axios({method: 'post', url: 'http://localhost:3000/user', data: userJSON}).then(response => {
-      this.props.updateUser(response.data)
-      this.context.router.push('/profile')
-    })
-  }
+    var zipcode = props.zipcode
+    axios({method: 'get', url: `https://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}&key=AIzaSyA4X16Aq4qYw7WrqcvZGzdKgeeL26E5irc`}).then(response => {
+      var city = response.data.results[0].formatted_address
+      var data = this.props.values
+      data.city = {}
+      data.city.name = city
+      var user = Object.assign({}, data, {id: this.props.currentUser.id}, {genres: genres.join(' ')}, {instruments: instruments.join(' ')})
+      var userJSON = JSON.stringify(user)
+      axios({method: 'post', url: 'http://localhost:3000/user', data: userJSON}).then(response => {
+        this.props.updateUser(response.data)
+        this.context.router.push('/profile')
+      })
+    }
+  )}
   render() {
     var user = this.props.currentUser
     const {fields: {name, zipcode, age, bio}, handleSubmit} = this.props;

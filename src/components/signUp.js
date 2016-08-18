@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import addUser from '../actions/addUser';
 import { reduxForm } from 'redux-form'
+import axios from 'axios'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 class SignUp extends Component {
   static contextTypes = {
@@ -8,9 +11,19 @@ class SignUp extends Component {
   }
 
   otherFunc(props){
-    this.props.addUser(props)
-    this.context.router.push('/signup2')
-  }
+    var zipcode = props.zipcode
+    axios({
+      method: 'get',
+      url: `https://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}&key=AIzaSyA4X16Aq4qYw7WrqcvZGzdKgeeL26E5irc`
+    }).then((response) => {
+        var city = response.data.results[0].formatted_address
+        var user = this.props.values
+        user.city = {}
+        user.city.name = city
+        this.props.addUser(user)
+        this.context.router.push('/signup2')
+      })
+    }
 
   dragenter(e) {
     e.stopPropagation();
@@ -60,7 +73,13 @@ class SignUp extends Component {
   }
 }
 
-export default reduxForm({
+var SmartForm = reduxForm({
   form: 'signUp',
   fields: ['name', 'zipcode', 'email', 'password']
-}, null, {addUser})(SignUp);
+})(SignUp);
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({addUser}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(SmartForm)
