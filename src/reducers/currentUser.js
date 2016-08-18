@@ -4,7 +4,7 @@ export default function currentUser(state = {}, action){
   var requests
   switch(action.type){
     case 'ADD_USER':
-      return {name: action.name, zip: action.zip, email: action.email, password: action.password}
+      return {name: action.name, city: action.city, email: action.email, password: action.password}
     case 'UPDATE_USER':
       var allFriends = [].concat(action.payload.inverse_friends).concat(action.payload.friends)
       return Object.assign(action.payload, {allFriends})
