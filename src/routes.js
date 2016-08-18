@@ -18,11 +18,14 @@ export default (
     <Route path="/signup" component={SmartSignUp} />
     <Route path="/signup2" component={SmartSignUp2} />
     <Route path="/signin" component={SignIn} />
-    <Route path="/profile" component={CurrentUserProfile} />
+    <Route path="/profile" component={CurrentUserProfile}>
+      <Route path="/profile/embed" component={Embed} />
+    <Route />
     <Route path="/profile/edit" component={EditProfile} />
     <Route path="/search" component={Search} />
     <Route path="/users/foo" component={ViewUserProfile} />
     <Route path="/requests" component={FriendRequests} />
     <Route path="/conversations" component={Conversations} />
+
   </Route>
   );

@@ -21,6 +21,7 @@ const Profile = ({data, notCurrentUser}) => {
         <div>Zipcode: {data.zip}</div>
         <div>Bio: {data.bio}</div>
         <div>Music Goes Here: </div>
+        <div> Add a soundcloud: </div>
         <div dangerouslySetInnerHTML={{__html: data.soundcloud}} />
         <FriendList data={data.allFriends} />
 
