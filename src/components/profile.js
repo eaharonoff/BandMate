@@ -3,12 +3,11 @@ import BasicsContainer from './basicsContainer'
 import FriendList from './friendList'
 
 const Profile = ({data, notCurrentUser}) => {
-  debugger
   if (notCurrentUser) {
     return (
       <div>
         <BasicsContainer data={data}/>
-        <div>Zipcode: {data.zip}</div>
+        <div>City: {data.city.name}</div>
         <div>Bio: {data.bio}</div>
         <div>Music Goes Here: {data.music}</div>
         <div dangerouslySetInnerHTML={{__html: data.soundcloud}} />
@@ -18,7 +17,7 @@ const Profile = ({data, notCurrentUser}) => {
     return (
       <div>
         <BasicsContainer data={data}/>
-        <div>Zipcode: {data.zip}</div>
+        <div>City: {data.city.name}</div>
         <div>Bio: {data.bio}</div>
         <div>Music Goes Here: </div>
         <div dangerouslySetInnerHTML={{__html: data.soundcloud}} />
