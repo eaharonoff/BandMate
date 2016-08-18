@@ -9,16 +9,33 @@ class FilteredUsers extends Component {
     router: PropTypes.object
   }
 
-  componentWillMount(){
+  goBackward(){
+    var index = this.props.searchedUsers.indexOf(this.props.currentlyViewing)
+    this.props.setUser(this.props.searchedUsers[index - 1])
+
+  }
+
+  goForward(){
+
+    var index = this.props.searchedUsers.indexOf(this.props.currentlyViewing)
+    this.props.setUser(this.props.searchedUsers[index + 1])
     
+  }
+
+  componentWillMount(){
+
     var currentView = this.props.searchedUsers[0]
     this.props.setUser(currentView)
   }
 
   render() {
-    debugger
+
       return (
-        <BasicsContainer data={this.props.currentlyViewing}/>
+        <div>
+          <BasicsContainer data={this.props.currentlyViewing}/>
+          <button onClick={this.goBackward.bind(this)}>Previous</button>
+          <button onClick={this.goForward.bind(this)}> Next</button>
+        </div>
       )
   }
 }
