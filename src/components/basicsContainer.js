@@ -35,6 +35,7 @@ class BasicsContainer extends Component {
     var idArray = [1, 2, 3]
     idArray.push(this.props.currentUser.id)
     if (idArray.find((id) => id === this.props.data.id) !== undefined ) {
+      debugger
       return (
         <div>
           <Basics data={this.props.data} viewProfile={this.viewProfile.bind(this)}/>

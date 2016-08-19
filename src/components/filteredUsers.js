@@ -5,6 +5,10 @@ import { bindActionCreators }  from 'redux'
 import setUser from '../actions/setUser'
 
 class FilteredUsers extends Component {
+
+
+
+
   static contextTypes = {
     router: PropTypes.object
   }
@@ -12,29 +16,35 @@ class FilteredUsers extends Component {
   goBackward(){
     var index = this.props.searchedUsers.indexOf(this.props.currentlyViewing)
     this.props.setUser(this.props.searchedUsers[index - 1])
-
   }
 
   goForward(){
-
-    var index = this.props.searchedUsers.indexOf(this.props.currentlyViewing)
-    this.props.setUser(this.props.searchedUsers[index + 1])
-    
+      var index = this.props.searchedUsers.indexOf(this.props.currentlyViewing)
+      this.props.setUser(this.props.searchedUsers[index + 1])
+      debugger
   }
 
   componentWillMount(){
-
-    var currentView = this.props.searchedUsers[0]
+    var currentView = this.props.searchedUsers[1]
     this.props.setUser(currentView)
+
+
+
   }
 
   render() {
 
+
+
       return (
+
+
         <div>
-          <BasicsContainer data={this.props.currentlyViewing}/>
+          <p><BasicsContainer data={this.props.searchedUsers[0]}/></p>
+          <p><BasicsContainer data={this.props.currentlyViewing}/></p>
           <button onClick={this.goBackward.bind(this)}>Previous</button>
           <button onClick={this.goForward.bind(this)}> Next</button>
+          <p><BasicsContainer data={this.props.searchedUsers[(this.props.searchedUsers.indexOf(this.props.currentlyViewing)) + 1]}/></p>
         </div>
       )
   }
