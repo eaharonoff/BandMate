@@ -4,6 +4,7 @@ import { reduxForm } from 'redux-form'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import uploadPicture from '../actions/uploadPicture'
 
 class SignUp extends Component {
   static contextTypes = {
@@ -18,41 +19,16 @@ class SignUp extends Component {
     }).then((response) => {
         var city = response.data.results[0].formatted_address
         var user = this.props.values
+        var picture = this.props.currentPicture
         user.city = {}
         user.city.name = city
+        user.picture = picture
         this.props.addUser(user)
         this.context.router.push('/signup2')
       })
     }
 
-  dragenter(e) {
-    e.stopPropagation();
-    e.preventDefault();
-  }
-
-  dragover(e) {
-    e.stopPropagation();
-    e.preventDefault();
-  }
-
-  drop(e) {
-    e.stopPropagation();
-    e.preventDefault();
-
-    var dt = e.dataTransfer
-    var files = dt.files
-    
-  }
-
-  componentDidMount() {
-    var dropbox = document.getElementById("dropbox")
-    dropbox.addEventListener("dragenter", this.dragenter, false);
-    dropbox.addEventListener("dragover", this.dragover, false);
-    dropbox.addEventListener("drop", this.drop, false);
-  }
-
   render() {
-
     const {fields: {name, zipcode, email, password}, handleSubmit} = this.props;
     return (
       <div>
@@ -63,11 +39,6 @@ class SignUp extends Component {
           Password: <input type='password' placeholder='password' {...password}/>
           <input type='submit'></input>
         </form>
-        <div id="dropbox">
-          <h1>hey</h1>
-          <h1>wassup</h1>
-          <h1>girl</h1>
-        </div>
       </div>
     );
   }
@@ -78,8 +49,12 @@ var SmartForm = reduxForm({
   fields: ['name', 'zipcode', 'email', 'password']
 })(SignUp);
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({addUser}, dispatch)
+function mapStateToProps(state) {
+  return {currentPicture: state.currentPicture}
 }
 
-export default connect(null, mapDispatchToProps)(SmartForm)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({addUser, uploadPicture}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SmartForm)
