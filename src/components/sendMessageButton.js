@@ -12,16 +12,25 @@ class sendMessageButton extends Component{
 
  sendMessage(){
   var userClicked = this.props.user.id
+  var currentUser = this.props.currentUser.id
   function findConversation(convoObj){ 
     return convoObj.user1_id === userClicked || convoObj.user2_id === userClicked
   }
   var conversation = this.props.currentUser.all_conversations.find(findConversation)
-  if (conversation != undefined){
+  debugger
+  if (conversation !== undefined){
     axios({method: 'get', url: `http://localhost:3000/conversations/${conversation.id}`}).then((response) => {
       this.props.saveConvo(response.data)
       this.context.router.push('/conversation')
     })
-  }
+  }else{
+      var createConversation = {currentUser, userClicked}
+      var conversationJSON = JSON.stringify(createConversation)
+      axios({method: 'post', url: `http://localhost:3000/conversations`, data: conversationJSON}).then((response) => {
+        this.props.saveConvo(response.data)
+        this.context.router.push('/conversation')
+      })
+    }
 }
   render(){
     return(
