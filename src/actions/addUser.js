@@ -4,7 +4,8 @@ function addUser(user){
     name: user.name,
     city: user.city,
     email: user.email,
-    password: user.password
+    password: user.password,
+    picture: user.picture
   }
 }
 export default addUser

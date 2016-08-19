@@ -12,7 +12,6 @@ class SignIn extends Component {
 
   handleSubmit(event){
     event.preventDefault()
-    debugger
     var email = document.getElementById('email').value
     var password = document.getElementById('password').value
     var login = {email, password}
@@ -22,7 +21,6 @@ class SignIn extends Component {
         document.getElementById('login-form').innerHTML += '<p>ur wrong</p>'
       } else {
         this.props.updateUser(response.data)
-
         this.context.router.push('/profile')
       }
     })
