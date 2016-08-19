@@ -11,10 +11,14 @@ class BasicsContainer extends Component {
   static contextTypes = {
     router: PropTypes.object
   }
+
+
+
   viewProfile(event) {
     event.preventDefault()
     var userId = event.target.id
     axios({method: 'get', url: `http://localhost:3000/users/${userId}`}).then((response) => {
+      response.data.soundcloud = response.data.soundcloud.replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
       var user = response.data
       this.props.setUser(user)
       this.context.router.push('/users/foo')
@@ -30,9 +34,16 @@ class BasicsContainer extends Component {
       this.props.addFriendRequest(response.data)
     })
   }
-  render() {
-    var idArray = this.props.currentUser.allFriends.map(friend => friend.id)
+  render(){
+    var idArray = [1, 2, 3]
     idArray.push(this.props.currentUser.id)
+
+    var styling = {
+      backgroundColor: this.props.style
+    }
+
+
+
     if (idArray.find((id) => id === this.props.data.id) !== undefined ) {
       return (
         <div>
@@ -41,7 +52,7 @@ class BasicsContainer extends Component {
       )
     } else {
       return (
-        <div>
+        <div style={styling} className="carousel-item">
           <Basics data={this.props.data} viewProfile={this.viewProfile.bind(this)}/>
           <RequestButton sendRequest={this.sendRequest.bind(this)} userId={this.props.data.id}/>
         </div>

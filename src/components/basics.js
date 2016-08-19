@@ -12,3 +12,6 @@ const Basics = ({data, viewProfile}) => {
 
 }
 export default Basics
+
+// <div>Instruments: {data.instruments.map(instrument => instrument.name).join(", ")}</div>
+// <div>Genres: {data.genres.map(genre => genre.name).join(", ")}</div>

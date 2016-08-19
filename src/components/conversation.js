@@ -25,4 +25,4 @@ function mapDispatchToProps(dispatch){
  return bindActionCreators({saveConvo}, dispatch)
 }
 
-export default connect(null,mapDispatchToProps)(Conversation) 
+export default connect(null,mapDispatchToProps)(Conversation)

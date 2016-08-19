@@ -19,6 +19,7 @@ class App extends Component {
       return (
       <div id='app'>
         <div id='navbar'>
+          
           <Link to='/profile'>My Profile</Link>
           <Link to='/search'>Find Musicians</Link>
           <Link to='/conversations'>Conversations</Link>
