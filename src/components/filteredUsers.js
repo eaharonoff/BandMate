@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import BasicsContainer from './basicsContainer';
 import { bindActionCreators }  from 'redux'
 import setUser from '../actions/setUser'
+import ReactBootstrap from 'react-bootstrap'
+import {React_Boostrap_Carousel} from 'react-boostrap-carousel';
 
 class FilteredUsers extends Component {
-
-
 
 
   static contextTypes = {
@@ -21,7 +21,7 @@ class FilteredUsers extends Component {
   goForward(){
       var index = this.props.searchedUsers.indexOf(this.props.currentlyViewing)
       this.props.setUser(this.props.searchedUsers[index + 1])
-      debugger
+
   }
 
   componentWillMount(){
@@ -36,16 +36,52 @@ class FilteredUsers extends Component {
 
 
 
+
+
+
       return (
+  <div id="carousel-example-generic" animation={true} className="carousel slide" data-ride="carousel">
 
+  <div className="carousel-inner" role="listbox">
+  <div>
+    <div className="carousel-item active item">
+        <BasicsContainer style="skyblue" slide="first-slide" data={this.props.searchedUsers[0]}/>
+    </div>
+  </div>
 
-        <div>
-          <p><BasicsContainer data={this.props.searchedUsers[0]}/></p>
-          <p><BasicsContainer data={this.props.currentlyViewing}/></p>
-          <button onClick={this.goBackward.bind(this)}>Previous</button>
-          <button onClick={this.goForward.bind(this)}> Next</button>
-          <p><BasicsContainer data={this.props.searchedUsers[(this.props.searchedUsers.indexOf(this.props.currentlyViewing)) + 1]}/></p>
-        </div>
+    <div>
+      <div className="carousel-item active item">
+      <BasicsContainer style="aqua"  data={this.props.currentlyViewing}/>
+      </div>
+    </div>
+
+    <div>
+      <div className="carousel-item active item">
+        <BasicsContainer style="lightpink" data={this.props.searchedUsers[(this.props.searchedUsers.indexOf(this.props.currentlyViewing)) + 1]}/>
+      </div>
+    </div>
+  </div>
+  <a onClick={this.goBackward.bind(this)} className="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span className="icon-prev" aria-hidden="true"></span>
+    <span className="sr-only">Previous</span>
+  </a>
+  <a onClick={this.goForward.bind(this)} className="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span className="icon-next" aria-hidden="true"></span>
+    <span className="sr-only">Next</span>
+  </a>
+</div>
+
+        // <div style={{height:300,margin:20}}>
+        //   <div className="carousel carousel-slide" data-ride="carousel">
+        //     <div className="carousel-inner" role="listbox">
+        //       <BasicsContainer style="skyblue" slide="first-slide" data={this.props.searchedUsers[0]}/>
+
+        //
+        //     </div>
+        //   </div>
+        //   <div className="btn btn-default" onClick={this.goBackward.bind(this)}>Previous</div>
+        //   <button onClick={this.goForward.bind(this)}> Next</button>
+        // </div>
       )
   }
 }

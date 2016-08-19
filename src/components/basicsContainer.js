@@ -11,6 +11,9 @@ class BasicsContainer extends Component {
   static contextTypes = {
     router: PropTypes.object
   }
+
+
+
   viewProfile(event) {
     event.preventDefault()
     var userId = event.target.id
@@ -34,8 +37,14 @@ class BasicsContainer extends Component {
   render(){
     var idArray = [1, 2, 3]
     idArray.push(this.props.currentUser.id)
+
+    var styling = {
+      backgroundColor: this.props.style
+    }
+
+
+
     if (idArray.find((id) => id === this.props.data.id) !== undefined ) {
-      debugger
       return (
         <div>
           <Basics data={this.props.data} viewProfile={this.viewProfile.bind(this)}/>
@@ -43,7 +52,7 @@ class BasicsContainer extends Component {
       )
     } else {
       return (
-        <div>
+        <div style={styling} className="carousel-item">
           <Basics data={this.props.data} viewProfile={this.viewProfile.bind(this)}/>
           <RequestButton sendRequest={this.sendRequest.bind(this)} userId={this.props.data.id}/>
         </div>
