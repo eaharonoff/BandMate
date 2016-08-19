@@ -1121,15 +1121,31 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  border-radius: 50px;
 }
+
+
 
 .carousel-item {
   height: 200px;
-  border-radius: 10px; 
+  border-radius: 10px;
+}
+
+.active-item-prev {
+  height: 125px;
+}
+
+.active-item-next {
+  height: 125px;
+}
+
+.carousel-inner {
+  border-radius: 20px;
 }
 
 #carousel-example-generic {
     height: 300px;
+
 }
 
 .img-rounded {

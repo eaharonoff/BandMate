@@ -40,24 +40,24 @@ class FilteredUsers extends Component {
 
 
       return (
-  <div id="carousel-example-generic" animation={true} className="carousel slide" data-ride="carousel">
+  <div id="carousel-example-generic"  animation={true} className="carousel slide" data-ride="carousel">
 
   <div className="carousel-inner" role="listbox">
   <div>
-    <div className="carousel-item active item">
-        <BasicsContainer style="skyblue" slide="first-slide" data={this.props.searchedUsers[0]}/>
+    <div className="carousel-item active-item-prev">
+        <BasicsContainer style="gray" slide="first-slide" data={this.props.searchedUsers[0]}/>
     </div>
   </div>
 
     <div>
       <div className="carousel-item active item">
-      <BasicsContainer style="aqua"  data={this.props.currentlyViewing}/>
+      <BasicsContainer style="aqua" data={this.props.currentlyViewing}/>
       </div>
     </div>
 
     <div>
-      <div className="carousel-item active item">
-        <BasicsContainer style="lightpink" data={this.props.searchedUsers[(this.props.searchedUsers.indexOf(this.props.currentlyViewing)) + 1]}/>
+      <div className="carousel-item active-item-next">
+        <BasicsContainer style="gray" data={this.props.searchedUsers[(this.props.searchedUsers.indexOf(this.props.currentlyViewing)) + 1]}/>
       </div>
     </div>
   </div>

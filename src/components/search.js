@@ -31,7 +31,7 @@ class Search extends Component {
         <form onSubmit={this.handleSubmit.bind(this)}>
           Choose Genres: <GenreCheckboxes />
           Choose Instruments: <InstrumentCheckboxes />
-          <input type='submit'></input>
+          <input type='submit' className="btn"></input>
         </form>
         {this.props.children}
       </div>
