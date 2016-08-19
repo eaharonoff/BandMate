@@ -3,7 +3,7 @@ import React from 'react'
 const RequestButton = ({sendRequest, userId}) => {
   return (
     <div data-id={userId}>
-      <button onClick={sendRequest}>Hey Girl</button>
+      <button onClick={sendRequest} className="btn">Add Friend</button>
     </div>
   )
 }

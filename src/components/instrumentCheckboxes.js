@@ -4,7 +4,7 @@ const InstrumentCheckboxes = () => {
   var instruments = ['guitar', 'drums']
   var boxes = instruments.map(instrument => {
     return (
-      <div>
+      <div className='instruments required'>
         <label>{instrument}</label><input key={instrument} type="checkbox" className='instrumentCheckbox' value={instrument}/>
       </div>
     )

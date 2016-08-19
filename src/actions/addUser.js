@@ -1,11 +1,11 @@
 function addUser(user){
-
   return {
     type: 'ADD_USER',
     name: user.name,
-    zip: user.zipcode,
+    city: user.city,
     email: user.email,
-    password: user.password
+    password: user.password,
+    picture: user.picture
   }
 }
 export default addUser

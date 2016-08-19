@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ConversationContainer from './conversationContainer';
@@ -7,15 +7,19 @@ import saveConvo from '../actions/saveConvo'
 
 
 class Conversations extends Component{
-  
+  static contextTypes = {
+    router: PropTypes.object
+  }
   handleClick(event){
       event.preventDefault()
       axios({method: 'get', url: `http://localhost:3000/conversations/${event.target.id}`}).then((response) => {
+      debugger
       this.props.saveConvo(response.data)
+      this.context.router.push("/conversation")
     })
   }
   render(){
-    var allConversations = this.props.currentUser.conversations.map((conversation) => {
+    var allConversations = this.props.currentUser.all_conversations.map((conversation) => {
       return (
           <ConversationContainer id={conversation.id} conversation={conversation} handleEvent={this.handleClick.bind(this)} />
       )
@@ -23,7 +27,6 @@ class Conversations extends Component{
     return (
       <div>
       {allConversations}
-      <CurrentConversation chat={this.props.currentConvo} />
       </div>
     )
 
@@ -31,7 +34,7 @@ class Conversations extends Component{
 }
 
 function mapStateToProps(state){
-  return {currentUser: state.currentUser, currentConvo: state.currentConvo }
+  return {currentUser: state.currentUser}
 }
 
 

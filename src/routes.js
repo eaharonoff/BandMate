@@ -11,21 +11,30 @@ import ViewUserProfile from './components/viewUserProfile'
 import FriendRequests from './components/friendRequests'
 import Conversations from './components/conversations'
 import Conversation from './components/conversation'
-
+import Home from './components/home'
+import FilteredUsers from './components/filteredUsers'
 
 
 export default (
-  <Route path='/' component={App}>
-    <Route path="/signup" component={SmartSignUp} />
-    <Route path="/signup2" component={SmartSignUp2} />
-    <Route path="/signin" component={SignIn} />
-    <Route path="/profile" component={CurrentUserProfile} />
-    <Route path="/profile/edit" component={EditProfile} />
-    <Route path="/search" component={Search} />
-    <Route path="/users/foo" component={ViewUserProfile}>
-      <Route path="/conversation" component={Conversation} />
+
+    <Route path='/' component={App}>
+      <Route path="/home" component={Home} />
+      <Route path="/signup" component={SmartSignUp} />
+      <Route path="/signup2" component={SmartSignUp2} />
+      <Route path="/signin" component={SignIn} />
+
+      <Route path="/profile" component={CurrentUserProfile}/>
+      <Route path="/profile/edit" component={EditProfile} />
+      <Route path="/search" component={Search} >
+        <Route path="/results" component={FilteredUsers} />
+      </Route>
+
+      <Route path="/users/foo" component={ViewUserProfile}>
+        <Route path="/conversation" component={Conversation} />
+      </Route>
+      <Route path="/requests" component={FriendRequests} />
+      <Route path="/conversations" component={Conversations} />
     </Route>
-    <Route path="/requests" component={FriendRequests} />
-    <Route path="/conversations" component={Conversations} />
-  </Route>
-  );
+
+  )
+
