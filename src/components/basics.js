@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const Basics = ({data, viewProfile}) => {
   return (
     <div>

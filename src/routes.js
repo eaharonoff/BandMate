@@ -10,6 +10,7 @@ import Search from './components/search'
 import ViewUserProfile from './components/viewUserProfile'
 import FriendRequests from './components/friendRequests'
 import Conversations from './components/conversations'
+import Conversation from './components/conversation'
 
 
 
@@ -21,7 +22,9 @@ export default (
     <Route path="/profile" component={CurrentUserProfile} />
     <Route path="/profile/edit" component={EditProfile} />
     <Route path="/search" component={Search} />
-    <Route path="/users/foo" component={ViewUserProfile} />
+    <Route path="/users/foo" component={ViewUserProfile}>
+      <Route path="/conversation" component={Conversation} />
+    </Route>
     <Route path="/requests" component={FriendRequests} />
     <Route path="/conversations" component={Conversations} />
   </Route>
