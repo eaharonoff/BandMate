@@ -12,8 +12,6 @@ class BasicsContainer extends Component {
     router: PropTypes.object
   }
 
-
-
   viewProfile(event) {
     event.preventDefault()
     var userId = event.target.id
@@ -38,14 +36,12 @@ class BasicsContainer extends Component {
     })
   }
   render(){
-    var idArray = [1, 2, 3]
+    var idArray = this.props.currentUser.allFriends.map(friend => friend.id)
     idArray.push(this.props.currentUser.id)
 
     var styling = {
       backgroundColor: this.props.style
     }
-
-
 
     if (idArray.find((id) => id === this.props.data.id) !== undefined ) {
       return (
