@@ -18,7 +18,10 @@ class BasicsContainer extends Component {
     event.preventDefault()
     var userId = event.target.id
     axios({method: 'get', url: `http://localhost:3000/users/${userId}`}).then((response) => {
-      response.data.soundcloud = response.data.soundcloud.replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
+
+      if (response.data.soundcloud) {
+        response.data.soundcloud = response.data.soundcloud.replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
+      }
       var user = response.data
       this.props.setUser(user)
       this.context.router.push('/users/foo')
