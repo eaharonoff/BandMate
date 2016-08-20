@@ -13,7 +13,6 @@ class Conversations extends Component{
   handleClick(event){
       event.preventDefault()
       axios({method: 'get', url: `http://localhost:3000/conversations/${event.target.id}`}).then((response) => {
-      debugger
       this.props.saveConvo(response.data)
       this.context.router.push("/conversation")
     })

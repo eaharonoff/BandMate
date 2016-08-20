@@ -10,7 +10,6 @@ class Conversation extends Component {
 
   createMessage(event) {
     event.preventDefault()
-    debugger
     var message = event.target.parentElement.children[0].value
     var conversationId = this.props.currentConvo.id
     var currentUserId = this.props.currentUser.id
@@ -21,6 +20,7 @@ class Conversation extends Component {
     })
   }
   render() {
+
     return (
     <div>
       <Messages data={this.props.currentConvo} />

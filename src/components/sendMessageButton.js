@@ -17,7 +17,6 @@ class sendMessageButton extends Component{
     return convoObj.user1_id === userClicked || convoObj.user2_id === userClicked
   }
   var conversation = this.props.currentUser.all_conversations.find(findConversation)
-  debugger
   if (conversation !== undefined){
     axios({method: 'get', url: `http://localhost:3000/conversations/${conversation.id}`}).then((response) => {
       this.props.saveConvo(response.data)
