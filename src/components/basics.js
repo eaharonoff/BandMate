@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const Basics = ({data, viewProfile}) => {
   !data.picture ? data.picture = 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg' : null
   return (
