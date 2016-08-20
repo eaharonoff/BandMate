@@ -4,7 +4,7 @@ import BasicsContainer from './basicsContainer';
 import { bindActionCreators }  from 'redux'
 import setUser from '../actions/setUser'
 import ReactBootstrap from 'react-bootstrap'
-import {React_Boostrap_Carousel} from 'react-boostrap-carousel';
+import { React_Boostrap_Carousel } from 'react-boostrap-carousel';
 
 class FilteredUsers extends Component {
 
