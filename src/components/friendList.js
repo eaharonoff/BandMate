@@ -23,7 +23,7 @@ class FriendList extends Component {
   }
 
   render() {
-    var friends = this.props.data.map((friend) => <BasicsContainer data={friend}/> )
+    var friends = this.props.data.map((friend) => <BasicsContainer key={friend.id} data={friend}/> )
     return (
       <ul>
       {friends}

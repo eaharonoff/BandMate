@@ -46,6 +46,11 @@ div {
   display: inline-block;
   margin: 10px;
 }
+div.conversations {
+  display: block;
+  clear: all;
+  margin: 10px;
+}
 a {
   background-color: transparent;
 }
@@ -1436,11 +1441,16 @@ a.bg-danger:focus {
   margin: 40px 0 20px;
   border-bottom: 1px solid #eee;
 }
-ul,
-ol {
+ul.conversation{
   margin-top: 0;
   margin-bottom: 10px;
+  background-color: #ebf6f9;
+  border-radius: 5px;
 }
+ul.conversation:hover{
+  background-color: #9dd0e1;
+}
+
 ul ul,
 ol ul,
 ul ol,
@@ -1450,6 +1460,7 @@ ol ol {
 .list-unstyled {
   padding-left: 0;
   list-style: none;
+  display:block;
 }
 .list-inline {
   padding-left: 0;
@@ -3995,6 +4006,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   z-index: 2;
   margin-left: -1px;
 }
+div.message{
+  display:block;
+}
+p.message-body{
+  background-color: #add8e6;
+  border-radius: 5px;
+  padding:5px;
+}
 .nav {
   padding-left: 0;
   margin-bottom: 0;
@@ -4192,6 +4211,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
+  display:block;
 }
 @media (min-width: 768px) {
   .navbar {

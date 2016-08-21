@@ -20,13 +20,15 @@ class Conversations extends Component{
   render(){
     var allConversations = this.props.currentUser.all_conversations.map((conversation) => {
       return (
-          <ConversationContainer id={conversation.id} conversation={conversation} handleEvent={this.handleClick.bind(this)} />
+          <ul className='conversation' key={conversation.id}>
+          <ConversationContainer key={conversation.id} id={conversation.id} conversation={conversation} handleEvent={this.handleClick.bind(this)} />
+          </ul>
       )
     }, this)
     return (
       <div>
-      {allConversations}
-      {this.props.children}
+        {allConversations} 
+        {this.props.children}
       </div>
     )
 

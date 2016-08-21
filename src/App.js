@@ -17,8 +17,7 @@ class App extends Component {
     if (this.props.currentUser.id !== undefined) {
       return (
       <div id='app'>
-        <div id='navbar'>
-          
+        <div className='navbar'>
           <Link to='/profile'>My Profile</Link>
           <Link to='/search'>Find Musicians</Link>
           <Link to='/conversations'>Conversations</Link>
@@ -29,11 +28,13 @@ class App extends Component {
       </div>
     )} else {
       return (
+      <div id='app'>
         <div id="navbar">
           <Link to='/signin'>Sign In</Link>
           <Link to='/signup'>Sign up</Link>
-          {this.props.children}
         </div>
+        {this.props.children}
+      </div>
     )}}
 }
 
