@@ -29,11 +29,11 @@ export default (
         <Route path="/results" component={FilteredUsers} />
       </Route>
 
-      <Route path="/users/foo" component={ViewUserProfile}>
+      <Route path="/users/foo" component={ViewUserProfile}/>
+      <Route path="/requests" component={FriendRequests} />
+      <Route path="/conversations" component={Conversations}>
         <Route path="/conversation" component={Conversation} />
       </Route>
-      <Route path="/requests" component={FriendRequests} />
-      <Route path="/conversations" component={Conversations} />
     </Route>
 
   )

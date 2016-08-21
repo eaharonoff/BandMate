@@ -30,10 +30,9 @@ class sendMessageButton extends Component{
         this.context.router.push('/conversation')
       })
     }
-}
-  render(){
+} render(){
     return(
-      <button onClick={this.sendMessage.bind(this)}></button> 
+      <button onClick={this.sendMessage.bind(this)}>Send Message</button> 
     )
     
   }

@@ -26,6 +26,7 @@ class Conversations extends Component{
     return (
       <div>
       {allConversations}
+      {this.props.children}
       </div>
     )
 
