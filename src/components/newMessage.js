@@ -5,7 +5,7 @@ const NewMessage = ({createMessage}) => {
   return (
     <div>
       <textarea></textarea>
-      <button onClick={createMessage}>Send</button>
+      <button onClick={createMessage} className="btn">Send</button>
     </div>
   )
 }

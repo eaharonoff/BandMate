@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+
 
 class ConversationContainer extends Component{  
   render(){
@@ -15,9 +14,9 @@ class ConversationContainer extends Component{
       }
     }
     return(
-      <div onClick={this.props.handleEvent.bind(this)}>
+      <li id={this.props.conversation.id} className='list-unstyled' onClick={this.props.handleEvent.bind(this)}>
         <div id={this.props.conversation.id}>{ 'You and '+ friendName}</div>
-      </div>
+      </li>
     )
   }
 }

@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
-import Conversation from './conversation'
 import saveConvo from '../actions/saveConvo'
 
 class sendMessageButton extends Component{
@@ -32,7 +31,7 @@ class sendMessageButton extends Component{
     }
 } render(){
     return(
-      <button onClick={this.sendMessage.bind(this)}>Send Message</button> 
+      <button onClick={this.sendMessage.bind(this)} className="message-btn">Send Message</button> 
     )
     
   }
