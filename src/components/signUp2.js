@@ -41,7 +41,7 @@ class SignUp2 extends Component {
           Choose Genres: <GenreCheckboxes />
           Choose Instruments: <InstrumentCheckboxes />
           Enter Soundcloud (Embed): <EmbedSoundcloud />
-          <input type='submit'></input>
+          <input type='submit' value='Sign Up'></input>
         </form>
       </div>
     );
