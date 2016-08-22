@@ -18,11 +18,11 @@ class App extends Component {
       return (
       <div id='app' className='container'>
         <div className='navbar'>
-          <Link to='/profile'>My Profile</Link>
-          <Link to='/search'>Find Musicians</Link>
-          <Link to='/conversations'>Conversations</Link>
-          <Link to='/requests'>Friend Requests - {this.props.currentUser.received_requests.length}</Link>
-          <a href="#" onClick={this.removeUser.bind(this)}>Logout</a>
+          <Link to='/profile' className='btn left'>My Profile</Link>
+          <Link to='/search' className='btn'>Find Musicians</Link>
+          <Link to='/conversations' className='btn'>Conversations</Link>
+          <Link to='/requests' className='btn'>Friend Requests - {this.props.currentUser.received_requests.length}</Link>
+          <a href="#" className='btn' onClick={this.removeUser.bind(this)} >Logout</a>
         </div>
         {this.props.children}
       </div>
