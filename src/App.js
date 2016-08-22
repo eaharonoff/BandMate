@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { bindActionCreators } from 'redux'
 import deleteUser from './actions/deleteUser'
-
 import './App.css';
 
 class App extends Component {
@@ -17,24 +16,30 @@ class App extends Component {
   render() {
     if (this.props.currentUser.id !== undefined) {
       return (
-      <div id='app'>
-        <div id='navbar'>
-          
+      <div id='app' className='container'>
+        <div className='navbar'>
           <Link to='/profile'>My Profile</Link>
           <Link to='/search'>Find Musicians</Link>
           <Link to='/conversations'>Conversations</Link>
           <Link to='/requests'>Friend Requests - {this.props.currentUser.received_requests.length}</Link>
           <a href="#" onClick={this.removeUser.bind(this)}>Logout</a>
-          {this.props.children}
         </div>
+        {this.props.children}
       </div>
     )} else {
       return (
-        <div id="navbar">
-          <Link to='/signin'>Sign In</Link>
+      <div id='app' className='container'>
+        <div className='navbar'>
+          <Link to='/signin'>Sign In </Link>
           <Link to='/signup'>Sign up</Link>
-          {this.props.children}
         </div>
+        <h3> Welcome to Bandmate!</h3>
+        <div className='container'>
+          <div className='row'>
+            {this.props.children}
+          </div>
+        </div>
+      </div>
     )}}
 }
 

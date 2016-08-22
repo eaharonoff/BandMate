@@ -12,13 +12,14 @@ class BasicsContainer extends Component {
     router: PropTypes.object
   }
 
-
-
   viewProfile(event) {
     event.preventDefault()
     var userId = event.target.id
     axios({method: 'get', url: `http://localhost:3000/users/${userId}`}).then((response) => {
-      response.data.soundcloud = response.data.soundcloud.replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
+
+      if (response.data.soundcloud) {
+        response.data.soundcloud = response.data.soundcloud.replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
+      }
       var user = response.data
       this.props.setUser(user)
       this.context.router.push('/users/foo')
@@ -35,14 +36,12 @@ class BasicsContainer extends Component {
     })
   }
   render(){
-    var idArray = [1, 2, 3]
+    var idArray = this.props.currentUser.allFriends.map(friend => friend.id)
     idArray.push(this.props.currentUser.id)
 
     var styling = {
       backgroundColor: this.props.style
     }
-
-
 
     if (idArray.find((id) => id === this.props.data.id) !== undefined ) {
       return (

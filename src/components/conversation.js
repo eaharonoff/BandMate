@@ -1,28 +1,44 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
+import Messages from './messages';
+import NewMessage from './newMessage';
 import saveConvo from '../actions/saveConvo'
 
-class Conversation extends Component{
-  handleClick(event){
+class Conversation extends Component {
+
+  createMessage(event) {
     event.preventDefault()
-    var convoId = event.target.id
-    axios({method: 'get', url: `http://localhost:3000/conversations/${convoId}`}).then((response) => {
-    this.props.saveConvo(response.data)
+    var message = event.target.parentElement.children[0].value
+    var conversationId = this.props.currentConvo.id
+    var currentUserId = this.props.currentUser.id
+    var messageObj = {message, conversationId, currentUserId }
+    var messageJSON = JSON.stringify(messageObj)
+    axios({method: 'post', url: 'http://localhost:3000/messages', data: messageJSON}).then(response => {
+      this.props.saveConvo(response.data)
     })
   }
-  render(){
-    return(
-      <div onClick={this.handleClick.bind(this)}>
-        <div id={this.props.convoData.id}>{this.props.convoData.name}</div>
-      </div>
+  render() {
+
+    return (
+    <div className='.col-md-3-offset-4'>
+        <Messages data={this.props.currentConvo} />
+        <hr></hr>
+        <NewMessage createMessage={this.createMessage.bind(this)}/>
+    </div>
     )
   }
 }
 
-function mapDispatchToProps(dispatch){
- return bindActionCreators({saveConvo}, dispatch)
+function mapStateToProps(state) {
+  return {currentConvo: state.currentConvo, currentUser: state.currentUser}
 }
 
-export default connect(null,mapDispatchToProps)(Conversation)
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({saveConvo},dispatch)
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Conversation)
+
+

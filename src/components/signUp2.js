@@ -7,8 +7,6 @@ import GenreCheckboxes from './genreCheckboxes'
 import InstrumentCheckboxes from './instrumentCheckboxes'
 import EmbedSoundcloud from './embedSoundcloud'
 import checkboxHelper from '../helpers/checkboxHelper'
-import $ from 'jquery'
-import jQuery from 'jquery'
 
 class SignUp2 extends Component {
   static contextTypes = {
@@ -17,32 +15,35 @@ class SignUp2 extends Component {
 
   handleSubmit(event){
     event.preventDefault()
-    debugger
-    if ($('div.genres input[type=checkbox]:checked') === null || $('div.instruments input[type=checkbox]:checked') === null) {
-      document.getElementById('root').innerHTML += 'Please select at least one of each category.'
-    } else {
-      var genres = checkboxHelper().genres
-      var instruments = checkboxHelper().instruments
-      var soundcloud = document.getElementById('soundcloudInput').value
-      var formattedSoundcloud = soundcloud.replace(/%/g, "Percent").replace(/"/g, 'Quote').replace(/=/g, 'Equal').replace(/&/g, 'And')
-      var user = Object.assign({}, this.props.currentUser, {genres: genres.join(' ')}, {instruments: instruments.join(' ')}, {soundcloud: formattedSoundcloud})
-      var userJSON = JSON.stringify(user)
-      axios({method: 'post', url: 'http://localhost:3000/users', data: userJSON}).then(response => {
+    var genres = checkboxHelper().genres
+    var instruments = checkboxHelper().instruments
+    var soundcloud = document.getElementById('soundcloudInput').value
+    var formattedSoundcloud = soundcloud.replace(/%/g, "Percent").replace(/"/g, 'Quote').replace(/=/g, 'Equal').replace(/&/g, 'And')
+    var user = Object.assign({}, this.props.currentUser, {genres: genres.join(' ')}, {instruments: instruments.join(' ')}, {soundcloud: formattedSoundcloud})
+    var userJSON = JSON.stringify(user)
+    axios({method: 'post', url: 'http://localhost:3000/users', data: userJSON}).then(response => {
+      if (response.data.info) {
+        document.getElementById('errors').innerHTML = '<p>ur wrong</p>'
+      } else {
         response.data.soundcloud = response.data.soundcloud.replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
         this.props.updateUser(response.data)
         this.context.router.push('/profile')
-      })
-    }
+      }
+    })
   }
 
   render() {
     return (
+      <div>
+        <div id='errors'>
+        </div>
         <form onSubmit={this.handleSubmit.bind(this)}>
-        Choose Genres: <GenreCheckboxes />
-        Choose Instruments: <InstrumentCheckboxes />
-        Enter Soundcloud (Embed): <EmbedSoundcloud />
-        <input type='submit'></input>
+          Choose Genres: <GenreCheckboxes />
+          Choose Instruments: <InstrumentCheckboxes />
+          Enter Soundcloud (Embed): <EmbedSoundcloud />
+          <input type='submit' value='Sign Up'></input>
         </form>
+      </div>
     );
   }
 }

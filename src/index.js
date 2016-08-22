@@ -11,7 +11,7 @@ import './index.css';
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore)
 
 ReactDOM.render(
- <Provider store={createStoreWithMiddleware(musicApp)}>
+ <Provider store={createStoreWithMiddleware(musicApp, window.devToolsExtension ? window.devToolsExtension() : f => f)}>
    <Router history={browserHistory} routes={Routes} />
  </Provider>,
  document.getElementById('root')
