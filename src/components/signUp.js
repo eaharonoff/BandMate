@@ -59,7 +59,7 @@ class SignUp extends Component {
               <input type='password' className='form-control form-control-lg' placeholder='password' required {...password}/>
             </div>
             <div className="col-lg-6">
-            <input type='submit' value='Sign Up'></input>
+            <input className='btn btn default' type='submit' value='Sign Up'></input>
             </div>
           </form>
         </div>

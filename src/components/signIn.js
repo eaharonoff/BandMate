@@ -35,7 +35,7 @@ class SignIn extends Component {
           <input type='text' className='form-control' placeholder='your email' id='email'/><br/>
           <label className='col-form-label'>Password</label>
           <input type='password' className='form-control' placeholder='your password' id='password'/><br/>
-          <input className='btn btn default' type='submit' value='Sign In'></input>
+          <input className='btn btn default' type='Submit' value='Sign In'></input>
         </form>
         <Link to='/signup'>New user? Sign up here</Link>
       </div>
