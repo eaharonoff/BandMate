@@ -72,6 +72,11 @@ h1 {
   margin: .67em 0;
   font-size: 2em;
 }
+.col-centered{
+    float: none;
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
 mark {
   color: #000;
   background: #ff0;
@@ -246,9 +251,7 @@ th {
   h2,
   h3 {
     page-break-after: avoid;
-  }
-  .navbar {
-    display: none;
+    text-align: center;
   }
   .btn > .caret,
   .dropup > .btn > .caret {
@@ -1216,6 +1219,7 @@ h6,
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
+  text-align: center;
 }
 h1 small,
 h2 small,
@@ -2583,10 +2587,12 @@ output {
 }
 .form-control {
   display: block;
-  width: 100%;
+  width: 50%;
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
+  text-align: center;
+  margin: 0 auto;
   line-height: 1.42857143;
   color: #555;
   background-color: #fff;
@@ -3150,8 +3156,10 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary {
   color: #fff;
+  margin-left: 1em;
   background-color: #337ab7;
   border-color: #2e6da4;
+  border-radius: 5px;
 }
 .btn-primary:focus,
 .btn-primary.focus {
@@ -4014,6 +4022,10 @@ p.message-body{
   border-radius: 5px;
   padding:5px;
 }
+.new-message-container{
+  display: inline;
+}
+
 .nav {
   padding-left: 0;
   margin-bottom: 0;
@@ -4208,9 +4220,9 @@ p.message-body{
 }
 .navbar {
   position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
+  text-align: center;
+  margin: auto 0 auto 0;
+  border: 1px solid black;
   display:block;
 }
 @media (min-width: 768px) {

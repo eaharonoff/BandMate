@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     if (this.props.currentUser.id !== undefined) {
       return (
-      <div id='app'>
+      <div id='app' className='container'>
         <div className='navbar'>
           <Link to='/profile'>My Profile</Link>
           <Link to='/search'>Find Musicians</Link>
@@ -28,12 +28,17 @@ class App extends Component {
       </div>
     )} else {
       return (
-      <div id='app'>
-        <div id="navbar">
-          <Link to='/signin'>Sign In</Link>
+      <div id='app' className='container'>
+        <div className='navbar'>
+          <Link to='/signin'>Sign In </Link>
           <Link to='/signup'>Sign up</Link>
         </div>
-        {this.props.children}
+        <h3> Welcome to Bandmate!</h3>
+        <div className='container'>
+          <div className='row'>
+            {this.props.children}
+          </div>
+        </div>
       </div>
     )}}
 }

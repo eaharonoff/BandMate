@@ -3,9 +3,9 @@ import React from 'react'
 const NewMessage = ({createMessage}) => {
 
   return (
-    <div>
+    <div className='new-message-container'>
       <textarea></textarea>
-      <button onClick={createMessage} className="btn">Send</button>
+      <button onClick={createMessage} className="btn-primary">Send</button>
     </div>
   )
 }

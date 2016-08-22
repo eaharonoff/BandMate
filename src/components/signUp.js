@@ -40,13 +40,27 @@ class SignUp extends Component {
       <div>
         <div id='errors'>
         </div>
-        <div>
+        <div className='container'>
           <form onSubmit={handleSubmit(this.otherFunc.bind(this))}>
-            Name: <input type='text' placeholder='name' required {...name}/>
-            City/State or Zipcode: <input type='text' placeholder='zipcode' required {...zipcode}/>
-            Email: <input type='email' placeholder='email' {...email}/>
-            Password: <input type='password' placeholder='password' required {...password}/>
-            <input type='submit'></input>
+           <div className="col-lg-12">
+              <label className="col-sm-2 col-form-label">Name:</label>
+              <input type='text' className='form-control form-control-lg' placeholder='name' required {...name}/>
+            </div>
+            <div className="col-lg-12">
+              <label className="col-sm-2 col-form-label">City/State or Zipcode:</label>
+              <input type='text' className='form-control form-control-lg' placeholder='zipcode' required {...zipcode}/>
+            </div>
+           <div className="col-lg-12">
+              <label className="col-sm-2 col-form-label">Email: </label>
+              <input type='email' className='form-control form-control-lg' placeholder='email' {...email}/>
+            </div>
+           <div className="col-lg-12">
+              <label className="col-sm-2 col-form-label">Password: </label>
+              <input type='password' className='form-control form-control-lg' placeholder='password' required {...password}/>
+            </div>
+            <div className="col-lg-6">
+            <input type='submit' value='Sign Up'></input>
+            </div>
           </form>
         </div>
       </div>
