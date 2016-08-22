@@ -26,8 +26,10 @@ class Conversations extends Component{
       )
     }, this)
     return (
-      <div>
-        {allConversations} 
+      <div className='container'>
+        <div className='.col-md-4'>
+          {allConversations} 
+        </div>
         {this.props.children}
       </div>
     )

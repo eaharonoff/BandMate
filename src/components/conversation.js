@@ -22,9 +22,10 @@ class Conversation extends Component {
   render() {
 
     return (
-    <div className='conversation-box'>
-      <Messages data={this.props.currentConvo} />
-      <NewMessage createMessage={this.createMessage.bind(this)}/>
+    <div className='.col-md-3-offset-4'>
+        <Messages data={this.props.currentConvo} />
+        <hr></hr>
+        <NewMessage createMessage={this.createMessage.bind(this)}/>
     </div>
     )
   }

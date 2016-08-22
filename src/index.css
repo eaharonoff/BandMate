@@ -3150,8 +3150,10 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-primary {
   color: #fff;
+  margin-left: 1em;
   background-color: #337ab7;
   border-color: #2e6da4;
+  border-radius: 5px;
 }
 .btn-primary:focus,
 .btn-primary.focus {
@@ -4014,6 +4016,10 @@ p.message-body{
   border-radius: 5px;
   padding:5px;
 }
+.new-message-container{
+  display: inline;
+}
+
 .nav {
   padding-left: 0;
   margin-bottom: 0;
