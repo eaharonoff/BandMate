@@ -7,8 +7,6 @@ import InstrumentCheckboxes from './instrumentCheckboxes'
 import updateUser from '../actions/updateUser'
 import axios from 'axios'
 import checkboxHelper from '../helpers/checkboxHelper'
-var Dropzone = require('react-dropzone')
-import ReactS3Uploader  from 'react-s3-uploader'
 
 class EditProfile extends Component {
   static contextTypes = {

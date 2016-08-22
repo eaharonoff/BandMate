@@ -139,6 +139,11 @@ button[disabled],
 html input[disabled] {
   cursor: default;
 }
+
+body {
+  background-image: "../favicon.ico"
+}
+
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   padding: 0;
