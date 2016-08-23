@@ -9,7 +9,6 @@ const Profile = ({data, notCurrentUser}) => {
       <div>
         <BasicsContainer data={data}/>
         <SendMessageButton user={data} />
-        <div>Bio: {data.bio}</div>
         <div dangerouslySetInnerHTML={{__html: data.soundcloud}} />
       </div>
     )
@@ -17,8 +16,6 @@ const Profile = ({data, notCurrentUser}) => {
     return (
       <div>
         <BasicsContainer data={data}/>
-        <div>Bio: {data.bio}</div>
-        <div> Add a soundcloud: </div>
         <div dangerouslySetInnerHTML={{__html: data.soundcloud}} />
         <FriendList data={data.allFriends} />
       </div>

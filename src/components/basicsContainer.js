@@ -51,7 +51,7 @@ class BasicsContainer extends Component {
       )
     } else {
       return (
-        <div style={styling} className="carousel-item">
+        <div className="carousel-item">
           <Basics data={this.props.data} viewProfile={this.viewProfile.bind(this)}/>
           <RequestButton sendRequest={this.sendRequest.bind(this)} userId={this.props.data.id}/>
         </div>

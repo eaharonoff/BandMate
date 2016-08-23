@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 import Profile from './profile'
 
 class CurrentUserProfile extends Component {
@@ -8,7 +7,6 @@ class CurrentUserProfile extends Component {
     return (
       <div id='user-profile'>
        <Profile data={this.props.currentUser} />
-       <Link to='/profile/edit'>Edit Profile</Link>
       </div>
     )
   }
