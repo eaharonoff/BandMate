@@ -25,7 +25,7 @@ class SignUp2 extends Component {
       if (response.data.info) {
         document.getElementById('errors').innerHTML = '<p>ur wrong</p>'
       } else {
-        response.data.soundcloud = response.data.soundcloud.replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
+        response.data.soundcloud = response.data.soundcloud.replace(/450/, "80").replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
         this.props.updateUser(response.data)
         this.context.router.push('/profile')
       }
