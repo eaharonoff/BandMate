@@ -24,9 +24,7 @@ main,
 menu,
 nav,
 section,
-summary {
-  display: block;
-}
+summary,
 audio,
 canvas,
 progress,
@@ -42,10 +40,7 @@ audio:not([controls]) {
 template {
   display: none;
 }
-div {
-  display: inline-block;
-  margin: 10px;
-}
+
 div.conversations {
   display: block;
   clear: all;
@@ -242,6 +237,7 @@ th {
   img {
     max-width: 100% !important;
   }
+
   p,
   h2,
   h3 {
@@ -1157,7 +1153,8 @@ img {
 }
 
 .img-rounded {
-  border-radius: 6px;
+  border-radius: 10px;
+  
 }
 .img-thumbnail {
   display: inline-block;
@@ -2300,7 +2297,7 @@ th {
   text-align: left;
 }
 .table {
-  width: 100%;
+  width: 40%;
   max-width: 100%;
   margin-bottom: 20px;
 }
@@ -5504,6 +5501,7 @@ button.list-group-item-danger.active:focus {
   line-height: 1.3;
 }
 .panel {
+  margin-top: 20px;
   margin-bottom: 20px;
   background-color: #fff;
   border: 1px solid transparent;

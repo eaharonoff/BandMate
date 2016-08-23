@@ -27,9 +27,6 @@ class FilteredUsers extends Component {
   componentWillMount(){
     var currentView = this.props.searchedUsers[1]
     this.props.setUser(currentView)
-
-
-
   }
 
   render() {
@@ -40,7 +37,7 @@ class FilteredUsers extends Component {
 
 
       return (
-  <div id="carousel-example-generic"  animation={true} className="carousel slide" data-ride="carousel">
+  <div id="carousel-example-generic" className="carousel slide" data-ride="carousel">
 
   <div className="carousel-inner" role="listbox">
   <div>
@@ -70,19 +67,7 @@ class FilteredUsers extends Component {
     <span className="sr-only">Next</span>
   </a>
 </div>
-
-        // <div style={{height:300,margin:20}}>
-        //   <div className="carousel carousel-slide" data-ride="carousel">
-        //     <div className="carousel-inner" role="listbox">
-        //       <BasicsContainer style="skyblue" slide="first-slide" data={this.props.searchedUsers[0]}/>
-
-        //
-        //     </div>
-        //   </div>
-        //   <div className="btn btn-default" onClick={this.goBackward.bind(this)}>Previous</div>
-        //   <button onClick={this.goForward.bind(this)}> Next</button>
-        // </div>
-      )
+  )
   }
 }
 

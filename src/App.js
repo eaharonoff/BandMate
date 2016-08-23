@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { bindActionCreators } from 'redux'
 import deleteUser from './actions/deleteUser'
 import './App.css';
+import './index.css';
 
 class App extends Component {
   static contextTypes = {
