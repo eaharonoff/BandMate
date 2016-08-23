@@ -144,6 +144,11 @@ button[disabled],
 html input[disabled] {
   cursor: default;
 }
+
+body {
+  background-image: "../favicon.ico"
+}
+
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   padding: 0;
@@ -4642,7 +4647,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
+  background-color: #6495ed;
   border-color: #080808;
 }
 .navbar-inverse .navbar-brand {

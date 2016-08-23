@@ -32,10 +32,10 @@ class SignIn extends Component {
         <div id='errors'></div>
         <form id='login-form' className='col-centered' onSubmit={this.handleSubmit.bind(this)}>
           <label className='col-form-label'>Email</label>
-          <input type='text' className='form-control' placeholder='your email' id='email'/>
+          <input type='text' className='form-control' placeholder='your email' id='email'/><br/>
           <label className='col-form-label'>Password</label>
-          <input type='password' className='form-control' placeholder='your password' id='password'/>
-          <input type='submit' value='Sign In'></input>
+          <input type='password' className='form-control' placeholder='your password' id='password'/><br/>
+          <input className='btn btn default' type='Submit' value='Sign In'></input>
         </form>
         <Link to='/signup'>New user? Sign up here</Link>
       </div>

@@ -12,7 +12,7 @@ class sendMessageButton extends Component{
  sendMessage(){
   var userClicked = this.props.user.id
   var currentUser = this.props.currentUser.id
-  function findConversation(convoObj){ 
+  function findConversation(convoObj){
     return convoObj.user1_id === userClicked || convoObj.user2_id === userClicked
   }
   var conversation = this.props.currentUser.all_conversations.find(findConversation)
@@ -31,9 +31,9 @@ class sendMessageButton extends Component{
     }
 } render(){
     return(
-      <button onClick={this.sendMessage.bind(this)} className="message-btn">Send Message</button> 
+      <button onClick={this.sendMessage.bind(this)} className="message-btn btn default">Send Message</button> 
     )
-    
+
   }
 }
 function mapStateToProps(state) {

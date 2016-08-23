@@ -48,4 +48,3 @@ const Basics = ({data, viewProfile}) => {
   )
 }
 export default Basics
-
