@@ -25,7 +25,7 @@ class FilteredUsers extends Component {
   }
 
   componentWillMount(){
-    var currentView = this.props.searchedUsers[1]
+    var currentView = this.props.searchedUsers[0]
     this.props.setUser(currentView)
   }
 
@@ -41,19 +41,19 @@ class FilteredUsers extends Component {
 
   <div className="carousel-inner" role="listbox">
   <div>
-    <div className="carousel-item active-item-prev">
+    <div className="col-md-4 carousel-item active-item-prev">
         <BasicsContainer style="gray" slide="first-slide" data={this.props.searchedUsers[0]}/>
     </div>
   </div>
 
     <div>
-      <div className="carousel-item active item">
+      <div className="col-md-4 carousel-item active item">
       <BasicsContainer style="aqua" data={this.props.currentlyViewing}/>
       </div>
     </div>
 
     <div>
-      <div className="carousel-item active-item-next">
+      <div className="col-md-4 carousel-item active-item-next">
         <BasicsContainer style="gray" data={this.props.searchedUsers[(this.props.searchedUsers.indexOf(this.props.currentlyViewing)) + 1]}/>
       </div>
     </div>
