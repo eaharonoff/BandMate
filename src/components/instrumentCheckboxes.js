@@ -1,7 +1,7 @@
 import React from 'react'
 
 const InstrumentCheckboxes = () => {
-  var instruments = ['guitar', 'drums']
+  var instruments = ['guitar', 'drums', 'bass_guitar', 'mandolin', 'accordion', 'bagpipes', 'banjo', 'clarinet', 'fiddle', 'flute', 'harmonica', 'piano', 'ukulele', 'alto_saxophone', 'tenor_saxophone', 'trumpet']
   var boxes = instruments.map(instrument => {
     return (
       <div className='instruments required'>
