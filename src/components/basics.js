@@ -14,7 +14,6 @@ const Basics = ({data, viewProfile}) => {
           <div className="col-md-3">
             <img className='img-rounded' src={data.picture} height='200' width='200'></img>
           </div>
-          <Link to='/profile/edit'>Edit Profile</Link>
             <div className="col-md-9">
               <table className="table table-user-information">
                 <tbody>
@@ -27,7 +26,7 @@ const Basics = ({data, viewProfile}) => {
                     <td>{data.city.name}</td>
                   </tr>
                   <tr>
-                    <td>Bio:</td> 
+                    <td>Bio:</td>
                     <td>{data.bio}</td>
                   </tr>
                   <tr>
