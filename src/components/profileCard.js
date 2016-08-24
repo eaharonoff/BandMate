@@ -25,9 +25,6 @@ const ProfileCard = ({data, viewProfile}) => {
                   <td>City:</td>
                   <td>{data.city.name}</td>
                 </tr>
-
-
-
               </tbody>
             </table>
             <div dangerouslySetInnerHTML={{__html: data.soundcloud}} />

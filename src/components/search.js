@@ -17,6 +17,7 @@ import instrumentHelper from '../helpers/instrumentHelper.js'
 import Fuse from 'fuse.js'
 import removeAllGenres from '../actions/removeAllGenres'
 import removeAllInstruments from '../actions/removeAllInstruments'
+import setUser from '../actions/setUser'
 
 class Search extends Component {
   static contextTypes = {
@@ -36,6 +37,8 @@ class Search extends Component {
     var userJSON= JSON.stringify({genres, instruments, userId})
     axios({method: 'post', url: 'http://localhost:3000/users/filter', data: userJSON}).then(response => {
       this.props.searchUsers(response.data)
+      var currentView = this.props.searchedUsers[0]
+      this.props.setUser(currentView)
       this.context.router.push('/results')
     })
   }
@@ -88,11 +91,11 @@ class Search extends Component {
 }
 
 function mapStateToProps(state) {
-  return {currentUser: state.currentUser, selectedGenres: state.selectedGenres, selectedInstruments: state.selectedInstruments}
+  return {currentUser: state.currentUser, selectedGenres: state.selectedGenres, selectedInstruments: state.selectedInstruments, searchedUsers: state.searchedUsers}
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({searchUsers, addGenre, addInstrument, removeGenre, removeInstrument, removeAllGenres, removeAllInstruments}, dispatch)
+  return bindActionCreators({searchUsers, addGenre, addInstrument, removeGenre, removeInstrument, removeAllGenres, removeAllInstruments, setUser}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search)
