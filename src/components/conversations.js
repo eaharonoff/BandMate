@@ -6,7 +6,7 @@ import axios from 'axios';
 import saveConvo from '../actions/saveConvo'
 
 
-class Conversations extends Component{
+class Conversations extends Component {
   static contextTypes = {
     router: PropTypes.object
   }
@@ -21,14 +21,14 @@ class Conversations extends Component{
     var allConversations = this.props.currentUser.all_conversations.map((conversation) => {
       return (
           <ul className='conversation' key={conversation.id}>
-          <ConversationContainer key={conversation.id} id={conversation.id} conversation={conversation} handleEvent={this.handleClick.bind(this)} />
+            <ConversationContainer key={conversation.id} id={conversation.id} conversation={conversation} handleEvent={this.handleClick.bind(this)} />
           </ul>
       )
     }, this)
     return (
       <div className='container'>
         <div className='.col-md-4'>
-          {allConversations} 
+          {allConversations}
         </div>
         {this.props.children}
       </div>
