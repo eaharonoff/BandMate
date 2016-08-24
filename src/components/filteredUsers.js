@@ -5,6 +5,7 @@ import { bindActionCreators }  from 'redux'
 import setUser from '../actions/setUser'
 import ReactBootstrap from 'react-bootstrap'
 import { React_Boostrap_Carousel } from 'react-boostrap-carousel';
+import ProfileCardContainer from './profileCardContainer'
 
 class FilteredUsers extends Component {
 
@@ -42,19 +43,19 @@ class FilteredUsers extends Component {
   <div className="carousel-inner" role="listbox">
   <div>
     <div className="col-md-4 carousel-item active-item-prev">
-        <BasicsContainer style="gray" slide="first-slide" data={this.props.searchedUsers[0]}/>
+        <ProfileCardContainer style="gray" slide="first-slide" data={this.props.searchedUsers[0]}/>
     </div>
   </div>
 
     <div>
       <div className="col-md-4 carousel-item active item">
-      <BasicsContainer style="aqua" data={this.props.currentlyViewing}/>
+      <ProfileCardContainer style="aqua" data={this.props.currentlyViewing}/>
       </div>
     </div>
 
     <div>
       <div className="col-md-4 carousel-item active-item-next">
-        <BasicsContainer style="gray" data={this.props.searchedUsers[(this.props.searchedUsers.indexOf(this.props.currentlyViewing)) + 1]}/>
+        <ProfileCardContainer style="gray" data={this.props.searchedUsers[(this.props.searchedUsers.indexOf(this.props.currentlyViewing)) + 1]}/>
       </div>
     </div>
   </div>

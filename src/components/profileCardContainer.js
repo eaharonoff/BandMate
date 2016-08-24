@@ -7,7 +7,7 @@ import axios from 'axios'
 import ProfileCard from './profileCard'
 import RequestButton from './requestButton'
 
-class BasicsContainer extends Component {
+class ProfileCardContainer extends Component {
   static contextTypes = {
     router: PropTypes.object
   }
@@ -68,4 +68,4 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators({addFriendRequest, setUser}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BasicsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileCardContainer)

@@ -12,7 +12,7 @@ const Basics = ({data, viewProfile}) => {
       <div className='panel-body'>
         <div className='row'>
           <div className="col-md-3">
-            <img className='img-rounded' src={data.picture} height='200' width='200'></img>
+            <img className='img-rounded' src={data.picture} height='500' width='500'></img>
           </div>
           <Link to='/profile/edit'>Edit Profile</Link>
             <div className="col-md-9">
@@ -27,7 +27,7 @@ const Basics = ({data, viewProfile}) => {
                     <td>{data.city.name}</td>
                   </tr>
                   <tr>
-                    <td>Bio:</td> 
+                    <td>Bio:</td>
                     <td>{data.bio}</td>
                   </tr>
                   <tr>
