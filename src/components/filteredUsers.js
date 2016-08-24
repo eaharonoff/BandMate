@@ -9,6 +9,7 @@ import ProfileCardContainer from './profileCardContainer'
 
 class FilteredUsers extends Component {
 
+  debugger
 
   static contextTypes = {
     router: PropTypes.object
@@ -24,6 +25,8 @@ class FilteredUsers extends Component {
       this.props.setUser(this.props.searchedUsers[index - 1])
 
   }
+
+
 
   render() {
       return (
