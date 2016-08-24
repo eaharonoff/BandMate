@@ -31,7 +31,7 @@ class sendMessageButton extends Component{
     }
 } render(){
     return(
-      <button onClick={this.sendMessage.bind(this)} className="message-btn btn default">Send Message</button> 
+      <button onClick={this.sendMessage.bind(this)} className="btn btn default">Send Message</button>
     )
 
   }

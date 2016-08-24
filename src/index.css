@@ -1129,7 +1129,6 @@ img {
 .carousel-inner > .item > a > img {
   display: block;
   max-width: 100%;
-  height: auto;
   border-radius: 50px;
 }
 
@@ -1150,17 +1149,24 @@ img {
 
 .carousel-inner {
   border-radius: 20px;
+  height: 400px;
 }
 
 #carousel-example-generic {
-    height: 300px;
+    height: 400px;
 
 }
 
 .img-rounded {
   border-radius: 10px;
-  
+
 }
+
+.img-rounded-profile-card {
+  height: 500px;
+  width: 500px;
+}
+
 .img-thumbnail {
   display: inline-block;
   max-width: 100%;

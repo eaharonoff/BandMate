@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router';
 
 
-const Basics = ({data, viewProfile}) => {
+const ProfileCard = ({data, viewProfile}) => {
   !data.picture ? data.picture = 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg' : null
   return (
     <div className='panel panel-info'>
@@ -10,11 +10,9 @@ const Basics = ({data, viewProfile}) => {
         <h3 className='panel-title'><a href="#" className='profile-pic' onClick={viewProfile} id={data.id}>{data.name}</a></h3>
       </div>
       <div className='panel-body'>
-        <div className='row'>
-          <div className="col-md-3">
-            <img className='img-rounded' src={data.picture} height='500' width='500'></img>
-          </div>
-            <div className="col-md-9">
+
+            <img className='img-rounded' src={data.picture} height="200" width="200" ></img>
+            <div className="col-md-2">
               <table className="table table-user-information">
                 <tbody>
                   <tr>
@@ -41,9 +39,9 @@ const Basics = ({data, viewProfile}) => {
               </table>
             </div>
           </div>
-        </div>
+
     </div>
 
   )
 }
-export default Basics
+export default ProfileCard
