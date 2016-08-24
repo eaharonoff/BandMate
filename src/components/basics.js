@@ -12,9 +12,13 @@ const Basics = ({data, viewProfile}) => {
       <div className='panel-body'>
         <div className='row'>
           <div className="col-md-3">
-            <img className='img-rounded' src={data.picture} height='500' width='500'></img>
+          <center>
+            <img className='img-rounded' src={data.picture} height='300' width='300'></img>
+          </center>
           </div>
-            <div className="col-md-9">
+          <Link to='/profile/edit'>Edit Profile</Link>
+            <div className="col-md-6">
+            <center>
               <table className="table table-user-information">
                 <tbody>
                   <tr>
@@ -39,7 +43,14 @@ const Basics = ({data, viewProfile}) => {
                   </tr>
                 </tbody>
               </table>
+            </center>
             </div>
+            <div className="col-md-3">
+              <center>
+               <div dangerouslySetInnerHTML={{__html: data.soundcloud}} />
+              </center>
+            </div>
+
           </div>
         </div>
     </div>

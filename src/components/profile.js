@@ -9,14 +9,12 @@ const Profile = ({data, notCurrentUser}) => {
       <div>
         <BasicsContainer data={data}/>
         <SendMessageButton user={data} />
-        <div dangerouslySetInnerHTML={{__html: data.soundcloud}} />
       </div>
     )
   } else {
     return (
       <div>
         <BasicsContainer data={data}/>
-        <div dangerouslySetInnerHTML={{__html: data.soundcloud}} />
         <FriendList data={data.allFriends} />
       </div>
     )
