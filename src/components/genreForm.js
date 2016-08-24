@@ -2,7 +2,7 @@ import React from 'react'
 
 const GenreForm = ({submit}) => {
   return (
-    <form onSubmit={submit}>
+    <form className='col-centered' onSubmit={submit}>
       <label>Select Genres!</label>
       <input type='text'/>
       <input type='submit'/>
