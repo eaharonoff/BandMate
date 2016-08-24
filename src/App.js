@@ -21,6 +21,7 @@ class App extends Component {
       <header id="navigation" className="navbar navbar-inverse">
         <div className='navbar-header'>
           <Link className='swag' to='/profile' className='btn left'>My Profile</Link>
+          <Link className='swag' to='/profile/edit' className='btn'>Edit Profile</Link>
           <Link className='swag' to='/search' className='btn'>Find Musicians</Link>
           <Link className='swag' to='/conversations' className='btn'>Conversations</Link>
           <Link className='swag' to='/requests' className='btn'>Friend Requests - {this.props.currentUser.received_requests.length}</Link>

@@ -27,6 +27,7 @@ class EditProfile extends Component {
         data.city.name = city
         var user = Object.assign({}, data, {id: this.props.currentUser.id}, {genres: genres.join(' ')}, {instruments: instruments.join(' ')})
         var userJSON = JSON.stringify(user)
+        debugger
         axios({method: 'post', url: 'http://localhost:3000/user', data: userJSON}).then(response => {
           this.props.updateUser(response.data)
           this.context.router.push('/profile')
@@ -47,8 +48,8 @@ class EditProfile extends Component {
         </div>
         <div>
           <form onSubmit={handleSubmit(this.otherFunc.bind(this))}>
-            Name: <input type='text' placeholder={user.name} required {...name}/>
-            City/State or Zipcode: <input type='text' placeholder={user.zip} required {...zipcode}/>
+            Name: <input type='text' placeholder={user.name} {...name}/>
+            City/State or Zipcode: <input type='text' placeholder={user.zip} {...zipcode}/>
             Age: <input type='number' placeholder={user.age} {...age}/>
             Bio: <textarea placeholder={user.bio} {...bio}/>
             Choose Genres: <GenreCheckboxes/>
