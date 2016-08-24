@@ -14,7 +14,7 @@ const ProfileCard = ({data, viewProfile}) => {
           <div className='col-md-3'>
             <img className='img-rounded' src={data.picture} height="100" width="100" ></img>
           </div>
-          <div className="col-md-2">
+          <div className="col-md-12">
             <table className="table table-user-information">
               <tbody>
                 <tr>
@@ -23,7 +23,7 @@ const ProfileCard = ({data, viewProfile}) => {
                 </tr>
                 <tr>
                   <td>City:</td>
-                  <td>{data.city.name}</td>
+
                 </tr>
               </tbody>
             </table>
