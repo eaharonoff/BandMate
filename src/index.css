@@ -1628,6 +1628,13 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+.friends-container{
+  border-style: solid;
+  border-color: black;
+  width: 40%;
+  height: 100%;
+  float: left;
+}
 @media (min-width: 768px) {
   .container {
     width: 750px;

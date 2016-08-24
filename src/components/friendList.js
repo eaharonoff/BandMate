@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import BasicsContainer from './basicsContainer'
+import Thumbnail from './thumbnail'
 import { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -23,11 +23,12 @@ class FriendList extends Component {
   }
 
   render() {
-    var friends = this.props.data.map((friend) => <BasicsContainer key={friend.id} data={friend}/> )
+    var friends = this.props.data.map((friend) => <Thumbnail key={friend.id} data={friend} viewProfile={this.handleClick.bind(this)}/> )
     return (
-      <ul>
-      {friends}
-      </ul>
+      <div className='friends-container'>
+        <h3> Friends </h3>
+        {friends}
+      </div>
     )
   }
 }
