@@ -16,7 +16,6 @@ const Basics = ({data, viewProfile}) => {
             <img className='img-rounded' src={data.picture} height='300' width='300'></img>
           </center>
           </div>
-          <Link to='/profile/edit'>Edit Profile</Link>
             <div className="col-md-6">
             <center>
               <table className="table table-user-information">

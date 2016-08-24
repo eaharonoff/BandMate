@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
 import saveConvo from '../actions/saveConvo'
+import addConvo from '../actions/addConvo'
 
 class sendMessageButton extends Component{
   static contextTypes = {
@@ -21,11 +22,12 @@ class sendMessageButton extends Component{
       this.props.saveConvo(response.data)
       this.context.router.push('/conversation')
     })
-  }else{
+  } else {
       var createConversation = {currentUser, userClicked}
       var conversationJSON = JSON.stringify(createConversation)
-      axios({method: 'post', url: `http://localhost:3000/conversations`, data: conversationJSON}).then((response) => {
+      axios({method: 'post', url: 'http://localhost:3000/conversations', data: conversationJSON}).then((response) => {
         this.props.saveConvo(response.data)
+        this.props.addConvo(response.data)
         this.context.router.push('/conversation')
       })
     }
@@ -41,7 +43,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({saveConvo},dispatch)
+  return bindActionCreators({saveConvo, addConvo}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(sendMessageButton)

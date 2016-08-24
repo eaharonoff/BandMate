@@ -23,7 +23,7 @@ class FriendList extends Component {
   }
 
   render() {
-    var friends = this.props.data.map((friend) => <Thumbnail key={friend.id} data={friend} viewProfile={this.handleClick.bind(this)}/> )
+    var friends = this.props.data.slice(0, 8).map((friend) => <Thumbnail key={friend.id} data={friend} viewProfile={this.handleClick.bind(this)}/> )
     return (
       <div className='friends-container'>
         <h3> Friends </h3>
