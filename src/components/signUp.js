@@ -58,9 +58,11 @@ class SignUp extends Component {
               <label className="col-sm-2 col-form-label">Password: </label>
               <input type='password' className='form-control form-control-lg' placeholder='password' required {...password}/>
             </div>
-            <div className="col-lg-6">
+            <center>
+            <div className="col-lg-12">
             <input className='btn btn default' type='submit' value='Sign Up'></input>
             </div>
+            </center>
           </form>
         </div>
       </div>
