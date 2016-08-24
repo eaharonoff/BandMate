@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-class ConversationContainer extends Component{  
+class ConversationContainer extends Component{
   render(){
     var names=[]
     var friendName;
@@ -15,7 +15,7 @@ class ConversationContainer extends Component{
     }
     return(
       <li id={this.props.conversation.id} className='list-unstyled' onClick={this.props.handleEvent.bind(this)}>
-        <div id={this.props.conversation.id}>{ 'You and '+ friendName}</div>
+        <div id={this.props.conversation.id}>{'You and '+ friendName}</div>
       </li>
     )
   }
@@ -28,5 +28,3 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps)(ConversationContainer)
-
-

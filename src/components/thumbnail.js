@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 
 
 const Thumbnail = ({data,viewProfile}) => {
+  !data.picture ? data.picture = 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg' : null
   return (
   <div className='col-md-3'>
     <figure className='figure'>
