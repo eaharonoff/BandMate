@@ -32,7 +32,11 @@ class BasicsContainer extends Component {
     var data = {myId, userId}
     var dataJSON = JSON.stringify(data)
     axios({method: 'post', url: 'http://localhost:3000/friend_requests', data: dataJSON}).then(response => {
+      if (!!response.data.info) {
+        document.getElementById('errors').innerHTML = response.data.info
+      } else {
       this.props.addFriendRequest(response.data)
+      }
     })
   }
   render(){
