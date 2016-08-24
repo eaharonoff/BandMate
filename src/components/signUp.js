@@ -47,8 +47,8 @@ class SignUp extends Component {
               <input type='text' className='form-control form-control-lg' placeholder='name' required {...name}/>
             </div>
             <div className="col-lg-12">
-              <label className="col-sm-2 col-form-label">City/State or Zipcode:</label>
-              <input type='text' className='form-control form-control-lg' placeholder='zipcode' required {...zipcode}/>
+              <label className="col-sm-2 col-form-label">City/State:</label>
+              <input type='text' className='form-control form-control-lg' placeholder='City/State' required {...zipcode}/>
             </div>
            <div className="col-lg-12">
               <label className="col-sm-2 col-form-label">Email: </label>
