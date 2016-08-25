@@ -74,17 +74,20 @@ class Search extends Component {
     var selectedInstruments = this.props.selectedInstruments.map(instrument => {
       return <SelectedInstrument instrument={instrument} remove={this.removeInstrument.bind(this)}>{instrument}</SelectedInstrument>
     })
+    var divStyle = {
+      textAlign: 'center'
+    }
     return (
-      <div>
-        <div id='errors'></div>
-          <GenreForm submit={this.submitGenre.bind(this)}/>
-            Selected Genres: {selectedGenres}
-          <InstrumentForm submit={this.submitInstrument.bind(this)}/>
-            Selected Instruments: {selectedInstruments}
-          <form onSubmit={this.handleSubmit.bind(this)}>
-            <input type='submit' className="btn btn-default"></input>
-          </form>
-        {this.props.children}
+      <div style={divStyle}>
+          <div id='errors'></div>
+            <GenreForm submit={this.submitGenre.bind(this)}/>
+              Selected Genres: {selectedGenres}
+            <InstrumentForm submit={this.submitInstrument.bind(this)}/>
+              Selected Instruments: {selectedInstruments}
+            <form onSubmit={this.handleSubmit.bind(this)}>
+              <input type='submit' className="btn btn-default"></input>
+            </form>
+          {this.props.children}
       </div>
     )
   }

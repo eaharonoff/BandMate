@@ -86,7 +86,7 @@ class EditProfile extends Component {
     var user = this.props.currentUser
     const {fields: {name, zipcode, age, bio}, handleSubmit} = this.props;
     return (
-      <div>
+      <div className="container">
         <div id='errors'> </div>
           <div>
             <GenreForm submit={this.submitGenre.bind(this)}/>
@@ -94,13 +94,15 @@ class EditProfile extends Component {
             <InstrumentForm submit={this.submitInstrument.bind(this)}/>
             Selected Instruments: {selectedInstruments}
           </div>
-          <form onSubmit={handleSubmit(this.otherFunc.bind(this))}>
-            Name: <input type='text' placeholder={user.name} {...name}/>
-            City/State or Zipcode: <input type='text' placeholder={user.zip} {...zipcode}/>
-            Age: <input type='number' placeholder={user.age} {...age}/>
-            Bio: <textarea placeholder={user.bio} {...bio}/>
-            <input type='submit'/>
-          </form>
+          <div className="col-centered">
+            <form onSubmit={handleSubmit(this.otherFunc.bind(this))}>
+              Name: <input type='text' className='form-control' placeholder={user.name} {...name}/>
+              City/State or Zipcode: <input type='text' className='form-control' placeholder={user.zip} {...zipcode}/>
+              Age: <input type='number' className='form-control' placeholder={user.age} {...age}/>
+              Bio: <textarea className='form-control' placeholder={user.bio} {...bio}/>
+              <input type='submit' value="Edit" className="btn btn-default"/>
+            </form>
+          </div>
       </div>
     )
   }
