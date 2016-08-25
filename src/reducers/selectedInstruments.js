@@ -2,7 +2,9 @@ export default function selectedInstruments(state = [], action) {
   switch(action.type) {
     case 'ADD_INSTRUMENT':
       var newState = [].concat(state)
-      newState.push(action.payload)
+      if (!newState.includes(action.payload)) {
+        newState.push(action.payload)
+      }
       return newState
     case 'REMOVE_INSTRUMENT':
       var newState = [].concat(state)

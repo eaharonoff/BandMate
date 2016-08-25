@@ -76,6 +76,9 @@ class Search extends Component {
     var selectedInstruments = this.props.selectedInstruments.map(instrument => {
       return <SelectedInstrument instrument={instrument} remove={this.removeInstrument.bind(this)}>{instrument}</SelectedInstrument>
     })
+    var divStyle = {
+      textAlign: 'center'
+    }
     return (
       <div>
         <div id='errors'></div>
