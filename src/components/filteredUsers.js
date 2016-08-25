@@ -24,8 +24,6 @@ class FilteredUsers extends Component {
 
   }
 
-
-
   render() {
       return (
   <div id="carousel-example-generic" className="carousel slide" data-ride="carousel">
