@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-class ConversationContainer extends Component{  
+class ConversationContainer extends Component{
   render(){
     var names=[]
     var friendName;
@@ -11,12 +11,17 @@ class ConversationContainer extends Component{
     for(let i = 0;i<names.length;i++){
       if(names[i] !== this.props.currentUser.name){
         friendName = names[i]
-      }
+      } 
+      //line  7-13 checks the store for the names in this conversation and determines 
+      //the name of the friend you are conversing with in order to display it on 
+      // conversations tab
     }
     return(
-      <li id={this.props.conversation.id} className='list-unstyled' onClick={this.props.handleEvent.bind(this)}>
-        <div id={this.props.conversation.id}>{ 'You and '+ friendName}</div>
-      </li>
+    <div className='conversation-header'>
+      <div id={this.props.conversation.id}  onClick={this.props.handleEvent.bind(this)}>
+      {'You and '+ friendName } 
+      </div>
+    </div>
     )
   }
 }
@@ -24,9 +29,7 @@ class ConversationContainer extends Component{
 
 
 function mapStateToProps(state){
-  return ({currentUser: state.currentUser})
+  return ({currentUser: state.currentUser, currentConvo: state.currentConvo})
 }
 
 export default connect(mapStateToProps)(ConversationContainer)
-
-

@@ -37,32 +37,21 @@ class SignUp extends Component {
   render() {
     const {fields: {name, zipcode, email, password}, handleSubmit} = this.props;
     return (
-      <div>
-        <div id='errors'>
-        </div>
-        <div className='container'>
-          <form onSubmit={handleSubmit(this.otherFunc.bind(this))}>
-           <div className="col-lg-12">
-              <label className="col-sm-2 col-form-label">Name:</label>
-              <input type='text' className='form-control form-control-lg' placeholder='name' required {...name}/>
-            </div>
-            <div className="col-lg-12">
-              <label className="col-sm-2 col-form-label">City/State or Zipcode:</label>
-              <input type='text' className='form-control form-control-lg' placeholder='zipcode' required {...zipcode}/>
-            </div>
-           <div className="col-lg-12">
-              <label className="col-sm-2 col-form-label">Email: </label>
-              <input type='email' className='form-control form-control-lg' placeholder='email' {...email}/>
-            </div>
-           <div className="col-lg-12">
-              <label className="col-sm-2 col-form-label">Password: </label>
-              <input type='password' className='form-control form-control-lg' placeholder='password' required {...password}/>
-            </div>
-            <div className="col-lg-6">
-            <input type='submit' value='Sign Up'></input>
-            </div>
+      <div className='container'>
+        <div id='errors'></div>
+          <form className='col-centered' onSubmit={handleSubmit(this.otherFunc.bind(this))}>
+              <label >Name:</label>
+              <input type='text' className='form-control' placeholder='name' required {...name}/><br />
+              <label >City/State:</label>
+              <input type='text' className='form-control' placeholder='City/State' required {...zipcode}/><br />
+              <label >Email: </label>
+              <input type='email' className='form-control' placeholder='email' {...email}/>
+              <label >Password: </label>
+              <input type='password' className='form-control' placeholder='password' required {...password}/><br />
+            <center>
+            <input className='btn' type='submit' value='Sign Up'></input>
+            </center>
           </form>
-        </div>
       </div>
     );
   }

@@ -4,12 +4,25 @@ import { bindActionCreators } from 'redux';
 import setUser from '../actions/setUser'
 import addFriendRequest from '../actions/addFriendRequest'
 import axios from 'axios'
-import Basics from './basics'
+import ProfileCard from './profileCard'
 import RequestButton from './requestButton'
 
-class BasicsContainer extends Component {
+class ProfileCardContainer extends Component {
   static contextTypes = {
     router: PropTypes.object
+  }
+
+  viewProfile(event) {
+    event.preventDefault()
+    var userId = event.target.id
+    axios({method: 'get', url: `http://localhost:3000/users/${userId}`}).then((response) => {
+      if (response.data.soundcloud) {
+        response.data.soundcloud = response.data.soundcloud.replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
+      }
+      var user = response.data
+      this.props.setUser(user)
+      this.context.router.push('/users/foo')
+    })
   }
   sendRequest(event) {
     event.preventDefault()
@@ -18,11 +31,7 @@ class BasicsContainer extends Component {
     var data = {myId, userId}
     var dataJSON = JSON.stringify(data)
     axios({method: 'post', url: 'http://localhost:3000/friend_requests', data: dataJSON}).then(response => {
-      if (!!response.data.info) {
-        document.getElementById('errors').innerHTML = response.data.info
-      } else {
       this.props.addFriendRequest(response.data)
-      }
     })
   }
   render(){
@@ -36,13 +45,13 @@ class BasicsContainer extends Component {
     if (idArray.find((id) => id === this.props.data.id) !== undefined ) {
       return (
         <div>
-          <Basics data={this.props.data} />
+          <ProfileCard data={this.props.data} viewProfile={this.viewProfile.bind(this)}/>
         </div>
       )
     } else {
       return (
-        <div>
-          <Basics data={this.props.data} />
+        <div className="carousel-item row">
+          <ProfileCard data={this.props.data} viewProfile={this.viewProfile.bind(this)}/>
           <RequestButton sendRequest={this.sendRequest.bind(this)} userId={this.props.data.id}/>
         </div>
       )
@@ -58,4 +67,4 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators({addFriendRequest, setUser}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(BasicsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileCardContainer)

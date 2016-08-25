@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
 import saveConvo from '../actions/saveConvo'
+import addConvo from '../actions/addConvo'
 
 class sendMessageButton extends Component{
   static contextTypes = {
@@ -12,7 +13,7 @@ class sendMessageButton extends Component{
  sendMessage(){
   var userClicked = this.props.user.id
   var currentUser = this.props.currentUser.id
-  function findConversation(convoObj){ 
+  function findConversation(convoObj){
     return convoObj.user1_id === userClicked || convoObj.user2_id === userClicked
   }
   var conversation = this.props.currentUser.all_conversations.find(findConversation)
@@ -21,19 +22,19 @@ class sendMessageButton extends Component{
       this.props.saveConvo(response.data)
       this.context.router.push('/conversation')
     })
-  }else{
+  } else {
       var createConversation = {currentUser, userClicked}
       var conversationJSON = JSON.stringify(createConversation)
-      axios({method: 'post', url: `http://localhost:3000/conversations`, data: conversationJSON}).then((response) => {
+      axios({method: 'post', url: 'http://localhost:3000/conversations', data: conversationJSON}).then((response) => {
         this.props.saveConvo(response.data)
         this.context.router.push('/conversation')
       })
     }
 } render(){
     return(
-      <button onClick={this.sendMessage.bind(this)} className="message-btn">Send Message</button> 
+      <button onClick={this.sendMessage.bind(this)} className="btn btn default">Send Message</button>
     )
-    
+
   }
 }
 function mapStateToProps(state) {
@@ -41,7 +42,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({saveConvo},dispatch)
+  return bindActionCreators({saveConvo, addConvo}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(sendMessageButton)

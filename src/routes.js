@@ -22,9 +22,8 @@ export default (
       <Route path="/signup" component={SmartSignUp} />
       <Route path="/signup2" component={SmartSignUp2} />
       <Route path="/signin" component={SignIn} />
-
       <Route path="/profile" component={CurrentUserProfile}/>
-      <Route path="/profile/edit" component={EditProfile} />
+      <Route path="/profile/edit" component={EditProfile}/>
       <Route path="/search" component={Search} >
         <Route path="/results" component={FilteredUsers} />
       </Route>
@@ -37,4 +36,3 @@ export default (
     </Route>
 
   )
-
