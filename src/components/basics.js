@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 
 const Basics = ({data, viewProfile}) => {
-  !data.picture ? data.picture = 'https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg' : null
+  !data.picture ? data.picture = 'https://thebenclark.files.wordpress.com/2014/03/facebook-default-no-profile-pic.jpg' : null
   return (
     <div className='panel panel-info'>
       <div className='panel-heading'>

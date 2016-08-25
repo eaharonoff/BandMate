@@ -38,6 +38,9 @@ class Search extends Component {
     var miles = event.target.children[1].value
     var userJSON= JSON.stringify({genres, instruments, userId, userCity, miles})
     axios({method: 'post', url: 'http://localhost:3000/users/filter', data: userJSON}).then(response => {
+      response.data.forEach(datum => {
+        datum.soundcloud = datum.soundcloud.replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
+      })
       this.props.searchUsers(response.data)
       var currentView = this.props.searchedUsers[0]
       this.props.setUser(currentView)

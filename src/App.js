@@ -40,7 +40,7 @@ class App extends Component {
           </div>
         </header>
         <br></br>
-          <div className='title-header'> Welcome to Bandmate!</div>
+          <div className='title-header'> Welcome to Bandmate (beta)!</div>
         <div className='container'>
           <div className='row'>
             {this.props.children}

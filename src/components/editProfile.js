@@ -66,6 +66,7 @@ class EditProfile extends Component {
       var user = Object.assign({}, data, {id: this.props.currentUser.id}, {genres}, {instruments})
       var userJSON = JSON.stringify(user)
       axios({method: 'post', url: 'http://localhost:3000/user', data: userJSON}).then(response => {
+        response.data.soundcloud = response.data.soundcloud.replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
         this.props.updateUser(response.data)
         this.context.router.push('/profile')
       })
