@@ -80,18 +80,6 @@ class Search extends Component {
       textAlign: 'center'
     }
     return (
-<<<<<<< HEAD
-      <div style={divStyle}>
-          <div id='errors'></div>
-            <GenreForm submit={this.submitGenre.bind(this)}/>
-              Selected Genres: {selectedGenres}
-            <InstrumentForm submit={this.submitInstrument.bind(this)}/>
-              Selected Instruments: {selectedInstruments}
-            <form onSubmit={this.handleSubmit.bind(this)}>
-              <input type='submit' className="btn btn-default"></input>
-            </form>
-          {this.props.children}
-=======
       <div>
         <div id='errors'></div>
         <GenreForm submit={this.submitGenre.bind(this)}/>
@@ -105,7 +93,6 @@ class Search extends Component {
           <input type='submit' className="btn btn-default"></input>
         </form>
         {this.props.children}
->>>>>>> 791f6690d1afb10e3bde3b9e1d99706a0901fa85
       </div>
     )
   }
