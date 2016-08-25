@@ -2383,7 +2383,8 @@ th {
   text-align: left;
 }
 .table {
-  width: 40%;
+  padding-top: 10px;
+  width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
 }
@@ -5618,10 +5619,15 @@ button.list-group-item-danger.active:focus {
 .panel-heading > .dropdown .dropdown-toggle {
   color: inherit;
 }
+
+
 .panel-title {
+  font-family: 'Ubuntu', 'Arial', sans-serif;
+  font: arial, serif;;
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 30px;
+  text-align: left;
   color: inherit;
 }
 .panel-title > a,

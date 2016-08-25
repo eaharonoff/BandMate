@@ -24,18 +24,22 @@ const Basics = ({data, viewProfile}) => {
                     <td>Age</td>
                     <td>{data.age}</td>
                   </tr>
+                  <br></br>
                   <tr>
                     <td>City:</td>
                     <td>{data.city.name}</td>
                   </tr>
+                  <br></br>
                   <tr>
                     <td>Bio:</td>
                     <td>{data.bio}</td>
                   </tr>
+                  <br></br>
                   <tr>
                     <td>Instruments:</td>
                     <td>{data.instruments.map(instrument => instrument.name).join(", ")}</td>
                   </tr>
+                  <br></br>
                   <tr>
                     <td>Genres:</td>
                     <td>{data.genres.map(genre => genre.name).join(", ")}</td>
