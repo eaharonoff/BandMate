@@ -9,20 +9,18 @@ import ProfileCardContainer from './profileCardContainer'
 
 class FilteredUsers extends Component {
 
-  debugger
-
   static contextTypes = {
     router: PropTypes.object
   }
 
   shiftLeft(){
     var index = this.props.searchedUsers.indexOf(this.props.currentlyViewing)
-    this.props.setUser(this.props.searchedUsers[index + 1])
+    this.props.setUser(this.props.searchedUsers[index - 1])
   }
 
   shiftRight(){
       var index = this.props.searchedUsers.indexOf(this.props.currentlyViewing)
-      this.props.setUser(this.props.searchedUsers[index - 1])
+      this.props.setUser(this.props.searchedUsers[index + 1])
 
   }
 

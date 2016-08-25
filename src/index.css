@@ -1634,6 +1634,10 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
+.signup-form1{
+  width: 60%;
+  margin: 0 auto;
+}
 .friends-container{
   border-style: solid;
   border-color: black;
@@ -1671,6 +1675,7 @@ pre code {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+  margin-bottom: 1em;
 }
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
@@ -2562,8 +2567,9 @@ legend {
 label {
   display: inline-block;
   max-width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-weight: bold;
+  text-align: center;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -2606,7 +2612,6 @@ output {
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
-  text-align: center;
   margin: 0 auto;
   line-height: 1.42857143;
   color: #555;
@@ -4237,17 +4242,20 @@ p.message-body{
   position: relative;
   text-align: center;
   margin: auto 0 auto 0;
-  border: 1px solid black;
+  padding: .75em;
   display:block;
+  background-color: #d9edf7;
 }
 @media (min-width: 768px) {
   .navbar {
     border-radius: 4px;
+    background-color: #d9edf7;
   }
 }
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
+    background-color: #d9edf7;
   }
 }
 .navbar-collapse {
@@ -4660,8 +4668,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #6495ed;
-  border-color: #080808;
+
+  
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;

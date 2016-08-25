@@ -19,7 +19,7 @@ export default function currentUser(state = {}, action){
       newState.received_requests.splice(idx, 1)
       newState.allFriends.push(action.payload.sender)
       return newState
-    case 'ADD_CONVO':
+    case 'SAVE_CONVO':
       newState = Object.assign({}, state)
       newState.all_conversations.push(action.payload)
       return newState
