@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import ConversationContainer from './conversationContainer';
 import axios from 'axios';
 import saveConvo from '../actions/saveConvo'
+import deleteConvo from '../actions/deleteConvo'
 
 
 class Conversations extends Component {
@@ -17,11 +18,23 @@ class Conversations extends Component {
       this.context.router.push("/conversation")
     })
   }
+
+  remove(event) {
+    event.preventDefault()
+    var convoId = event.target.dataset.conversation
+    var data = JSON.stringify({convoId})
+    axios({
+      url: 'http://localhost:3000/conversations/delete',
+      method: 'post',
+      data
+    })
+    this.props.deleteConvo(convoId)
+  }
   render(){
     var allConversations = this.props.currentUser.all_conversations.map((conversation) => {
       return (
           <div className='conversation' key={conversation.id}>
-            <ConversationContainer key={conversation.id} id={conversation.id} conversation={conversation} handleEvent={this.handleClick.bind(this)} />
+            <ConversationContainer key={conversation.id} id={conversation.id} conversation={conversation} handleEvent={this.handleClick.bind(this)} remove={this.remove.bind(this)}/>
           </div>
       )
     }, this)
@@ -43,7 +56,7 @@ function mapStateToProps(state){
 
 
 function mapDispatchToProps(dispatch){
- return bindActionCreators({saveConvo}, dispatch)
+ return bindActionCreators({saveConvo, deleteConvo}, dispatch)
 }
 
 

@@ -23,6 +23,12 @@ export default function currentUser(state = {}, action){
       newState = Object.assign({}, state)
       newState.all_conversations.push(action.payload)
       return newState
+    case 'DELETE_CONVO':
+      newState = Object.assign({}, state)
+      var conversations = newState.all_conversations
+      var conversation = conversations.find(conversation => conversation.id === action.payload)
+      conversations.splice(conversations.indexOf(conversation), 1)
+      return newState
     case 'DECLINE_FRIEND_REQUEST':
       newState = Object.assign({}, state)
       requests = newState.received_requests

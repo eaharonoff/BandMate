@@ -2,7 +2,9 @@ export default function selectedGenres(state = [], action) {
   switch(action.type) {
     case 'ADD_GENRE':
       var newState = [].concat(state)
-      newState.push(action.payload)
+      if (!newState.includes(action.payload)) {
+        newState.push(action.payload)
+      }
       return newState
     case 'REMOVE_GENRE':
       var newState = [].concat(state)
