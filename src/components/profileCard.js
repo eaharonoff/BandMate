@@ -12,7 +12,7 @@ const ProfileCard = ({data, viewProfile}) => {
       <div className='panel-body'>
         <div className="row">
           <div className='col-md-3'>
-            <img className='img-rounded' src={data.picture} height="100" width="100" ></img>
+            <img className='img-rounded' src={data.picture} height="150" width="150" ></img>
           </div>
           <div className="col-md-12">
             <table className="table table-user-information">

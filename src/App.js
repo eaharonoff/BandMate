@@ -18,28 +18,28 @@ class App extends Component {
     if (this.props.currentUser.id !== undefined) {
       return (
       <div id='app' className='container-fluid'>
-      <header id="navigation" className="navbar navbar-inverse">
-        <div className='navbar-header'>
-          <Link className='swag' to='/profile' className='btn left'>My Profile</Link>
-          <Link className='swag' to='/profile/edit' className='btn'>Edit Profile</Link>
-          <Link className='swag' to='/search' className='btn'>Find Musicians</Link>
-          <Link className='swag' to='/conversations' className='btn'>Conversations</Link>
-          <Link className='swag' to='/requests' className='btn'>Friend Requests - {this.props.currentUser.received_requests.length}</Link>
-          <a href="#" className='btn' onClick={this.removeUser.bind(this)} >Logout</a>
-        </div>
-        </header>
+        <header id="navigation" className="navbar navbar-inverse">
+            <div className='navbar-header'>
+              <Link className='swag' to='/profile' className='btn left'>My Profile</Link>
+              <Link className='swag' to='/profile/edit' className='btn'>Edit Profile</Link>
+              <Link className='swag' to='/search' className='btn'>Find Musicians</Link>
+              <Link className='swag' to='/conversations' className='btn'>Conversations</Link>
+              <Link className='swag' to='/requests' className='btn'>Friend Requests - {this.props.currentUser.received_requests.length}</Link>
+              <a href="#" className='btn' onClick={this.removeUser.bind(this)} >Logout</a>
+            </div>
+          </header>
         {this.props.children}
       </div>
     )} else {
       return (
       <div id='app' className='container-fluid'>
-      <header id="navigation" className="navbar navbar-inverse">
-        <div className='navbar-header'>
-          <Link className='swag' to='/signin'>Sign In </Link>
-          <Link className='swag' to='/signup'>Sign up</Link>
-        </div>
+        <header id="navigation" className="navbar navbar-inverse">
+          <div className='navbar-header'>
+            <Link className='swag' to='/signin'>Sign In </Link>
+            <Link className='swag' to='/signup'>Sign up</Link>
+          </div>
         </header>
-        <h3> Welcome to Bandmate!</h3>
+          <h3> Welcome to Bandmate!</h3>
         <div className='container'>
           <div className='row'>
             {this.props.children}
