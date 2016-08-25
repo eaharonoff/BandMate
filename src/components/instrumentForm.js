@@ -3,9 +3,10 @@ import React from 'react'
 const InstrumentForm = ({submit}) => {
   return (
     <form className='col-centered' onSubmit={submit}>
-      <label>Select Instruments!</label>
+      <label>Select Instruments</label>
+      <br></br>
       <input type='text'/>
-      <input type='submit'/>
+      <input type='submit' value='add' className="btn btn-default"/>
     </form>
   )
 }

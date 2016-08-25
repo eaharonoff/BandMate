@@ -9,9 +9,15 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+
 body {
   margin: 0;
 }
+
+#app {
+  padding-top: 5px;
+}
+
 article,
 aside,
 details,
@@ -40,6 +46,12 @@ audio:not([controls]) {
 template {
   display: none;
 }
+
+.selected-style {
+  font-weight: bold;
+  background-color: #d9edf7;
+}
+
 
 div.conversations {
   display: block;
@@ -1149,11 +1161,11 @@ img {
 
 .carousel-inner {
   border-radius: 20px;
-  height: 400px;
+  height: 550px;
 }
 
 #carousel-example-generic {
-    height: 400px;
+    height: 550px;
 
 }
 
@@ -1183,6 +1195,15 @@ img {
 .img-circle {
   border-radius: 50%;
 }
+
+.basics {
+  padding-top: 15px;
+}
+
+/*.profilesoundcloud {
+  padding-right: 15px
+}*/
+
 hr {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -1646,11 +1667,15 @@ pre code {
 }
 .friends-container{
   border-style: solid;
-  border-color: black;
+  border-color: #d9edf7;
   width: 40%;
   height: 100%;
   float: left;
+
 }
+
+
+
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -3067,6 +3092,11 @@ select[multiple].input-lg {
     font-size: 12px;
   }
 }
+
+#navigation{
+
+}
+
 .btn {
   display: inline-block;
   padding: 6px 12px;
@@ -3084,6 +3114,7 @@ select[multiple].input-lg {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  background-color: #d9edf7;
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -4262,6 +4293,7 @@ p.message-body{
   .navbar-header {
     float: left;
     background-color: #d9edf7;
+    padding-left: 10px;
   }
 }
 .navbar-collapse {
@@ -4675,7 +4707,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse {
 
-  
+
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;
