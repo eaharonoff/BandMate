@@ -55,10 +55,10 @@ class EditProfile extends Component {
   }
 
   otherFunc(props) {
-    var zipcode = props.zipcode
+    var city = props.city
     var genres = this.props.selectedGenres.join(" ")
     var instruments = this.props.selectedInstruments.join(" ")
-    axios({method: 'get', url: `https://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}&key=AIzaSyA4X16Aq4qYw7WrqcvZGzdKgeeL26E5irc`}).then(response => {
+    axios({method: 'get', url: `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=AIzaSyA4X16Aq4qYw7WrqcvZGzdKgeeL26E5irc`}).then(response => {
       var city = response.data.results[0].formatted_address
       var data = this.props.values
       data.city = {}
@@ -74,7 +74,6 @@ class EditProfile extends Component {
     })
   }
 
-
   render() {
     var selectedGenres = this.props.selectedGenres.map(genre => {
       return <SelectedGenre genre={genre} remove={this.removeGenre.bind(this)}>{genre}</SelectedGenre>
@@ -83,7 +82,7 @@ class EditProfile extends Component {
       return <SelectedInstrument instrument={instrument} remove={this.removeInstrument.bind(this)}>{instrument}</SelectedInstrument>
     })
     var user = this.props.currentUser
-    const {fields: {name, zipcode, age, bio}, handleSubmit} = this.props;
+    const {fields: {name, city, age, bio}, handleSubmit} = this.props;
     return (
       <div className='container'>
         <div id='errors'> </div>
@@ -95,7 +94,7 @@ class EditProfile extends Component {
           </div>
           <form onSubmit={handleSubmit(this.otherFunc.bind(this))}>
             Name: <input type='text' placeholder={user.name} {...name}/>
-            City/State or Zipcode: <input type='text' placeholder={user.zip} {...zipcode}/>
+            City/State: <input type='text' id='city' {...city}/>
             Age: <input type='number' placeholder={user.age} {...age}/>
             Bio: <textarea placeholder={user.bio} {...bio}/>
             <input type='submit'/>
@@ -107,7 +106,7 @@ class EditProfile extends Component {
 
 var SmartForm = reduxForm({
   form: 'signUp',
-  fields: ['name', 'zipcode', 'age', 'bio']
+  fields: ['name', 'city', 'age', 'bio']
 })(EditProfile);
 
 function mapStateToProps(state) {
