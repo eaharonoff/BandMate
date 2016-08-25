@@ -1474,13 +1474,14 @@ a.bg-danger:focus {
   margin: 40px 0 20px;
   border-bottom: 1px solid #eee;
 }
-ul.conversation{
-  margin-top: 0;
-  margin-bottom: 10px;
+div.conversation{
+  text-align: center;
+  margin: 10px auto;
   background-color: #ebf6f9;
   border-radius: 5px;
+  width: 50%;
 }
-ul.conversation:hover{
+div.conversation:hover{
   background-color: #9dd0e1;
 }
 
@@ -1494,6 +1495,11 @@ ol ol {
   padding-left: 0;
   list-style: none;
   display:block;
+  width: 30%;
+}
+.conversation-header{
+  width:50%;
+  display: inline;
 }
 .list-inline {
   padding-left: 0;

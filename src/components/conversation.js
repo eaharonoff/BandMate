@@ -18,7 +18,9 @@ class Conversation extends Component {
     axios({method: 'post', url: 'http://localhost:3000/messages', data: messageJSON}).then(response => {
       this.props.saveConvo(response.data)
     })
+    event.target.parentElement.children[0].value=''
   }
+ 
   render() {
 
     return (

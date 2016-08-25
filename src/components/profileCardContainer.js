@@ -16,7 +16,6 @@ class ProfileCardContainer extends Component {
     event.preventDefault()
     var userId = event.target.id
     axios({method: 'get', url: `http://localhost:3000/users/${userId}`}).then((response) => {
-
       if (response.data.soundcloud) {
         response.data.soundcloud = response.data.soundcloud.replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
       }
