@@ -5,8 +5,12 @@ import axios from 'axios';
 import Messages from './messages';
 import NewMessage from './newMessage';
 import saveConvo from '../actions/saveConvo'
+import setUser from '../actions/setUser'
 
 class Conversation extends Component {
+  static contextTypes = {
+    router: PropTypes.object
+  }
 
   createMessage(event) {
     event.preventDefault()
@@ -20,12 +24,25 @@ class Conversation extends Component {
     })
     event.target.parentElement.children[0].value=''
   }
+
+  viewProfile(event) {
+    event.preventDefault()
+    var userId = event.target.className
+    axios({method: 'get', url: `http://localhost:3000/users/${userId}`}).then((response) => {
+      if (response.data.soundcloud) {
+        response.data.soundcloud = response.data.soundcloud.replace(/Percent/g, "%").replace(/Quote/g, '"').replace(/Equal/g, '=').replace(/And/g, '&')
+      }
+      var user = response.data
+      this.props.setUser(user)
+      this.context.router.push('/users/foo')
+    })
+  }
  
   render() {
 
     return (
     <div className='.col-md-3-offset-4'>
-        <Messages data={this.props.currentConvo} />
+        <Messages data={this.props.currentConvo} viewProfile={this.viewProfile.bind(this)}/>
         <hr></hr>
         <NewMessage createMessage={this.createMessage.bind(this)}/>
     </div>
@@ -38,7 +55,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({saveConvo},dispatch)
+  return bindActionCreators({saveConvo, setUser},dispatch)
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Conversation)
