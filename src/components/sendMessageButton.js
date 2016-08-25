@@ -27,7 +27,6 @@ class sendMessageButton extends Component{
       var conversationJSON = JSON.stringify(createConversation)
       axios({method: 'post', url: 'http://localhost:3000/conversations', data: conversationJSON}).then((response) => {
         this.props.saveConvo(response.data)
-        this.props.addConvo(response.data)
         this.context.router.push('/conversation')
       })
     }

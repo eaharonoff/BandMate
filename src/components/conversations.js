@@ -20,9 +20,9 @@ class Conversations extends Component {
   render(){
     var allConversations = this.props.currentUser.all_conversations.map((conversation) => {
       return (
-          <ul className='conversation' key={conversation.id}>
+          <div className='conversation' key={conversation.id}>
             <ConversationContainer key={conversation.id} id={conversation.id} conversation={conversation} handleEvent={this.handleClick.bind(this)} />
-          </ul>
+          </div>
       )
     }, this)
     return (

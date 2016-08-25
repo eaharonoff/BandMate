@@ -65,7 +65,6 @@ class EditProfile extends Component {
       data.city.name = city
       var user = Object.assign({}, data, {id: this.props.currentUser.id}, {genres}, {instruments})
       var userJSON = JSON.stringify(user)
-      debugger
       axios({method: 'post', url: 'http://localhost:3000/user', data: userJSON}).then(response => {
         this.props.updateUser(response.data)
         this.context.router.push('/profile')
@@ -86,13 +85,13 @@ class EditProfile extends Component {
     var user = this.props.currentUser
     const {fields: {name, zipcode, age, bio}, handleSubmit} = this.props;
     return (
-      <div>
+      <div className='container'>
         <div id='errors'> </div>
-          <div>
+          <div className='col-centered'>
             <GenreForm submit={this.submitGenre.bind(this)}/>
-            Selected Genres: {selectedGenres}
+            <center>Selected Genres: {selectedGenres}</center>
             <InstrumentForm submit={this.submitInstrument.bind(this)}/>
-            Selected Instruments: {selectedInstruments}
+            <center>Selected Instruments: {selectedInstruments}</center>
           </div>
           <form onSubmit={handleSubmit(this.otherFunc.bind(this))}>
             Name: <input type='text' placeholder={user.name} {...name}/>

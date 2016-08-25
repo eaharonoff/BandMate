@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import Profile from './profile'
 
 class ViewUserProfile extends Component {
-  render() {  
+  
+  render() { 
+    
     return (
       <div className='user-profile'>
        <Profile data={this.props.currentlyViewing} notCurrentUser={true} />
