@@ -44,7 +44,7 @@ const Basics = ({data, viewProfile}) => {
               </table>
             </center>
             </div>
-            <div className="col-md-4 profilesoundcloud">
+            <div className="col-md-4">
               <center>
                <div dangerouslySetInnerHTML={{__html: data.soundcloud}} />
               </center>

@@ -1195,7 +1195,7 @@ img {
 }
 
 /*.profilesoundcloud {
-  padding-top: 15px
+  padding-right: 15px
 }*/
 
 hr {
@@ -1655,11 +1655,15 @@ pre code {
 }
 .friends-container{
   border-style: solid;
-  border-color: black;
+  border-color: #d9edf7;
   width: 40%;
   height: 100%;
   float: left;
+
 }
+
+
+
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -3076,6 +3080,11 @@ select[multiple].input-lg {
     font-size: 12px;
   }
 }
+
+#navigation{
+
+}
+
 .btn {
   display: inline-block;
   padding: 6px 12px;
@@ -3093,6 +3102,7 @@ select[multiple].input-lg {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  background-color: #d9edf7;
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -4271,6 +4281,7 @@ p.message-body{
   .navbar-header {
     float: left;
     background-color: #d9edf7;
+    padding-left: 10px;
   }
 }
 .navbar-collapse {
@@ -4684,7 +4695,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse {
 
-  
+
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;
