@@ -23,7 +23,6 @@ const ProfileCard = ({data, viewProfile}) => {
                 </tr>
                 <tr>
                   <td>City:{data.city.name}</td>
-
                 </tr>
               </tbody>
             </table>
