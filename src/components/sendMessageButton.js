@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import axios from 'axios';
 import saveConvo from '../actions/saveConvo'
-import addConvo from '../actions/addConvo'
+import updateConvo from '../actions/updateConvo'
 
 class sendMessageButton extends Component{
   static contextTypes = {
@@ -19,7 +19,7 @@ class sendMessageButton extends Component{
   var conversation = this.props.currentUser.all_conversations.find(findConversation)
   if (conversation !== undefined){
     axios({method: 'get', url: `http://localhost:3000/conversations/${conversation.id}`}).then((response) => {
-      this.props.saveConvo(response.data)
+      this.props.updateConvo(response.data)
       this.context.router.push('/conversation')
     })
   } else {
@@ -42,7 +42,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({saveConvo, addConvo}, dispatch)
+  return bindActionCreators({saveConvo, updateConvo}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(sendMessageButton)

@@ -96,7 +96,7 @@ class EditProfile extends Component {
         <div className="col-centered">
           <form onSubmit={handleSubmit(this.otherFunc.bind(this))}>
             Name: <input type='text' className='form-control' placeholder={user.name} {...name}/>
-            City/State or city: <input type='text' className='form-control' placeholder={user.zip} {...city}/>
+            City/State: <input type='text' className='form-control' placeholder={user.zip} {...city}/>
             Age: <input type='number' className='form-control' placeholder={user.age} {...age}/>
             Bio: <textarea className='form-control' placeholder={user.bio} {...bio}/>
             <input type='submit' value="Edit" className="btn btn-default"/>
