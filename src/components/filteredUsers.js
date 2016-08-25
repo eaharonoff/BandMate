@@ -9,8 +9,6 @@ import ProfileCardContainer from './profileCardContainer'
 
 class FilteredUsers extends Component {
 
-  debugger
-
   static contextTypes = {
     router: PropTypes.object
   }

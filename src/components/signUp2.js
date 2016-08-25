@@ -79,11 +79,11 @@ class SignUp2 extends Component {
       <div>
         <div id='errors'></div>
         <GenreForm submit={this.submitGenre.bind(this)}/>
-        Selected Genres: {selectedGenres}
+        <center>Selected Genres: {selectedGenres}</center><br />
         <InstrumentForm submit={this.submitInstrument.bind(this)}/>
-        Selected Instruments: {selectedInstruments}
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          Enter Soundcloud (Embed): <EmbedSoundcloud />
+        <center>Selected Instruments: {selectedInstruments}</center><br />
+        <form className='col-centered' onSubmit={this.handleSubmit.bind(this)}>
+          Enter Soundcloud (Embed): <EmbedSoundcloud /><br />
           <input type='submit' className='btn btn default' value='Sign Up'></input>
         </form>
       </div>
