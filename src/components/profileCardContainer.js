@@ -51,7 +51,7 @@ class ProfileCardContainer extends Component {
       )
     } else {
       return (
-        <div className="carousel-item">
+        <div className="carousel-item row">
           <ProfileCard data={this.props.data} viewProfile={this.viewProfile.bind(this)}/>
           <RequestButton sendRequest={this.sendRequest.bind(this)} userId={this.props.data.id}/>
         </div>
