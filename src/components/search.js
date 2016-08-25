@@ -34,7 +34,9 @@ class Search extends Component {
     var genres = this.props.selectedGenres.join(" ")
     var instruments = this.props.selectedInstruments.join(" ")
     var userId = this.props.currentUser.id
-    var userJSON= JSON.stringify({genres, instruments, userId})
+    var userCity = this.props.currentUser.city.name
+    var miles = event.target.children[1].value
+    var userJSON= JSON.stringify({genres, instruments, userId, userCity, miles})
     axios({method: 'post', url: 'http://localhost:3000/users/filter', data: userJSON}).then(response => {
       this.props.searchUsers(response.data)
       var currentView = this.props.searchedUsers[0]
@@ -82,6 +84,9 @@ class Search extends Component {
         <InstrumentForm submit={this.submitInstrument.bind(this)}/>
         Selected Instruments: {selectedInstruments}
         <form onSubmit={this.handleSubmit.bind(this)}>
+          <label for='miles'>Maximum Distance (Miles):</label>
+          <input type='text' id='miles'></input>
+          <br></br>
           <input type='submit' className="btn btn-default"></input>
         </form>
         {this.props.children}
