@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import axios from 'axios';
 import Messages from './messages';
 import NewMessage from './newMessage';
-import saveConvo from '../actions/saveConvo'
+import updateConvo from '../actions/updateConvo'
 import setUser from '../actions/setUser'
 
 class Conversation extends Component {
@@ -20,7 +20,7 @@ class Conversation extends Component {
     var messageObj = {message, conversationId, currentUserId }
     var messageJSON = JSON.stringify(messageObj)
     axios({method: 'post', url: 'http://localhost:3000/messages', data: messageJSON}).then(response => {
-      this.props.saveConvo(response.data)
+      this.props.updateConvo(response.data)
     })
     event.target.parentElement.children[0].value=''
   }
@@ -39,7 +39,6 @@ class Conversation extends Component {
   }
  
   render() {
-
     return (
     <div className='.col-md-3-offset-4'>
         <Messages data={this.props.currentConvo} viewProfile={this.viewProfile.bind(this)}/>
@@ -55,7 +54,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({saveConvo, setUser},dispatch)
+  return bindActionCreators({updateConvo, setUser},dispatch)
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Conversation)
