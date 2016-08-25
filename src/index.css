@@ -4,6 +4,11 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+@font-face {
+
+}
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -12,7 +17,10 @@ html {
 
 body {
   margin: 0;
+  background-image: url("https://c4.staticflickr.com/9/8485/28879787915_9ac47f1a07_b.jpg");
+  background-size: cover;
 }
+
 
 #app {
   padding-top: 5px;
@@ -1660,10 +1668,12 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  text-align: center;
 }
 .signup-form1{
   width: 60%;
   margin: 0 auto;
+
 }
 .friends-container{
   border-style: solid;
@@ -1671,10 +1681,24 @@ pre code {
   width: 40%;
   height: 100%;
   float: left;
+  background-color: white;
 
 }
+.center-signin {
+text-align: center;
+}
 
+.signin-link{
+  border-style: solid;
+  border-color: #d9edf7;
+  float: left;
+  background-color: white;
+  padding: 6px 12px;
+  font-size: 14px;
+  margin: 0 auto;
+  border-radius: 4px;
 
+}
 
 @media (min-width: 768px) {
   .container {
@@ -1691,6 +1715,14 @@ pre code {
     width: 1170px;
   }
 }
+
+.title-header{
+  font-family: 'Ubuntu', 'Arial', sans-serif;
+  font: arial, serif;;
+  text-align: center;
+  font-size: 103px;
+}
+
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
@@ -3118,8 +3150,9 @@ select[multiple].input-lg {
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
+
 }
-.btn:focus,
+.:focus,
 .btn:active:focus,
 .btn.active:focus,
 .btn.focus,

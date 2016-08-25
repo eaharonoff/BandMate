@@ -39,7 +39,8 @@ class App extends Component {
             <Link className='swag' to='/signup'>Sign up</Link>
           </div>
         </header>
-          <h3> Welcome to Bandmate (beta)!</h3>
+        <br></br>
+          <div className='title-header'> Welcome to Bandmate (beta)!</div>
         <div className='container'>
           <div className='row'>
             {this.props.children}

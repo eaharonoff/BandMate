@@ -37,7 +37,9 @@ class SignIn extends Component {
           <input type='password' className='form-control' placeholder='your password' id='password'/><br/>
           <input className='btn btn default' type='Submit' value='Sign In'></input>
         </form>
-        <Link to='/signup'>New user? Sign up here</Link>
+        <center>
+          <Link to='/signup'className='signin-link'>New user? Sign up here</Link>
+        </center>
       </div>
     )
   }
