@@ -9,9 +9,15 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+
 body {
   margin: 0;
 }
+
+#app {
+  padding-top: 5px;
+}
+
 article,
 aside,
 details,
@@ -1183,6 +1189,15 @@ img {
 .img-circle {
   border-radius: 50%;
 }
+
+.basics {
+  padding-top: 15px;
+}
+
+/*.profilesoundcloud {
+  padding-top: 15px
+}*/
+
 hr {
   margin-top: 20px;
   margin-bottom: 20px;

@@ -17,12 +17,12 @@ class FilteredUsers extends Component {
 
   shiftLeft(){
     var index = this.props.searchedUsers.indexOf(this.props.currentlyViewing)
-    this.props.setUser(this.props.searchedUsers[index + 1])
+    this.props.setUser(this.props.searchedUsers[index - 1])
   }
 
   shiftRight(){
       var index = this.props.searchedUsers.indexOf(this.props.currentlyViewing)
-      this.props.setUser(this.props.searchedUsers[index - 1])
+      this.props.setUser(this.props.searchedUsers[index + 1])
 
   }
 
